@@ -1,27 +1,30 @@
-/*package trabalho;
+package trabalho;
+
+import java.util.ArrayList;
 
 public class Sapatilha extends Produto {
     
-    private String tipoBico[];
-    private String material[];
+    ArrayList <Sapatilha> listaSapatilha;
 
-    public Sapatilha(String tipoBico[], String material[]){
-
+    public Sapatilha(){
+        this.listaSapatilha = new ArrayList<>();
     }
 
     public String marca() {
+        return null;
 
     }
-    public String nomeProfudo() {
-
+    public String nomeProduto() {
+        return null;
     }
-    public double tamanho() {
-
+    public int tamanho() {
+        return (Integer) null;
     }
     public String cor() {
-
+        return null;
     }
     public double valorProduto() {
-
+        return (Double) null;
     }
-}*/
+
+}

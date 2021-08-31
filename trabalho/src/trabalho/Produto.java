@@ -2,10 +2,10 @@ package trabalho;
 
 public abstract class Produto {
 
-    protected String marca;
-    protected String nomeProfudo;
-    protected double tamanho;
-    protected String cor;
-    protected double valorProduto;
+    public abstract String marca();
+    public abstract String nomeProduto();
+    public abstract int tamanho();
+    public abstract String cor();
+    public abstract double valorProduto();
 
 }
