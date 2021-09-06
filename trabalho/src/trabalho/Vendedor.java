@@ -7,6 +7,7 @@ public class Vendedor {
 
     }
     public Vendedor(String nomeVendedor, int cpfVendedor, String dataNascVendedor){
+        
         setNomeVendedor(nomeVendedor);
         setCpfVendedor (cpfVendedor);
         setDataNascVendedor (dataNascVendedor);
