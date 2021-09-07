@@ -8,14 +8,17 @@ public class Main {
 
         Scanner ler = new Scanner(System.in);
 
-        String recebeString, nome, marca, cor, tipoBico, material, nomeVendedor, dataNascVendedor;
+        String recebeString, nome, marca, cor, tipoBico, material, nomeVendedor, dataNascVendedor, departamento,
+                tipoTrava, modeloCadarco, tipoCorreia, estetica;
         int opcao0, cpfVendedor, opcaoVendedor1, opcaoProduto, tamanho, i;
         int numProdutosCadas = 15;
-        char opcaoVendedor, opcaoCliente, continuar;
+        char opcaoVendedor, opcaoCliente;
         Double valorProduto, circunferenciaCano, alturaSalto;
         Vendedor novoVendedor = new Vendedor();
         Sapatilha novaSapatilha = new Sapatilha();
         Bota novaBota = new Bota();
+        Chuteira novaChuteira = new Chuteira();
+        Chinelo novoChinelo = new Chinelo();
 
         String listaMarca[] = new String[100];
         String listaNome[] = new String[100];
@@ -27,6 +30,11 @@ public class Main {
         String listaMaterial[] = new String[100];
         Double listaCircunferenciaCano[] = new Double[100];
         Double listaAlturaSalto[] = new Double[100];
+        String listaDepartamento[] = new String[100];
+        String listaTipoTrava[] = new String[100];
+        String listaModeloCadarco[] = new String[100];
+        String listaTipoCorreia[] = new String[100];
+        String listaEstetica[] = new String[100];
 
         do {
             menu();
@@ -125,9 +133,55 @@ public class Main {
                                                 break;
                                             // ADICIONAR CHUTEIRA
                                             case 3:
+                                                System.out.println("Digite o nome do produto.");
+                                                nome = ler.nextLine().toUpperCase();
+                                                System.out.println("Digite a marca do produto.");
+                                                marca = ler.nextLine().toUpperCase();
+                                                System.out.println("Digite o tamanho do produto.");
+                                                recebeString = ler.nextLine();
+                                                tamanho = Integer.parseInt(recebeString);
+                                                System.out.println("Digite a cor do produto.");
+                                                cor = ler.nextLine().toUpperCase();
+                                                System.out.println("Digite o valor do produto.");
+                                                recebeString = ler.nextLine();
+                                                valorProduto = Double.parseDouble(recebeString);
+                                                System.out.println("Digite o departamento da chuteira.");
+                                                departamento = ler.nextLine().toUpperCase();
+                                                System.out.println("Digite o tipo de trava.");
+                                                tipoTrava = ler.nextLine();
+                                                System.out.println("Digite o tipo de cadarco.");
+                                                modeloCadarco = ler.nextLine();
+
+                                                novaChuteira = new Chuteira(nome, marca, cor, valorProduto, tamanho,
+                                                        opcaoProduto, numProdutosCadas, departamento, tipoTrava,
+                                                        modeloCadarco, listaNome, listaMarca, listaTamanho, listaCor,
+                                                        listaValorProduto, listaCategoria, listaDepartamento,
+                                                        listaTipoTrava, listaModeloCadarco);
                                                 break;
                                             // ADICIONAR CHINELO
                                             case 4:
+                                                System.out.println("Digite o nome do produto.");
+                                                nome = ler.nextLine().toUpperCase();
+                                                System.out.println("Digite a marca do produto.");
+                                                marca = ler.nextLine().toUpperCase();
+                                                System.out.println("Digite o tamanho do produto.");
+                                                recebeString = ler.nextLine();
+                                                tamanho = Integer.parseInt(recebeString);
+                                                System.out.println("Digite a cor do produto.");
+                                                cor = ler.nextLine().toUpperCase();
+                                                System.out.println("Digite o valor do produto.");
+                                                recebeString = ler.nextLine();
+                                                valorProduto = Double.parseDouble(recebeString);
+                                                System.out.println("Digite o tipo de correia do chinelo.");
+                                                tipoCorreia = ler.nextLine().toUpperCase();
+                                                System.out.println("Digite a estetica do chinelo.");
+                                                estetica = ler.nextLine();
+
+                                                novoChinelo = new Chinelo(nome, marca, cor, valorProduto, tamanho,
+                                                        opcaoProduto, numProdutosCadas, tipoCorreia, estetica,
+                                                        listaNome, listaMarca, listaTamanho, listaCor,
+                                                        listaValorProduto, listaCategoria, listaTipoCorreia,
+                                                        listaEstetica);
                                                 break;
                                             // ADICIONAR TENIS
                                             case 5:
@@ -195,9 +249,50 @@ public class Main {
                                                 break;
                                             // EDITAR CHUTEIRA
                                             case 3:
+                                                System.out.println("Digite o nome do produto");
+                                                nome = ler.nextLine().toUpperCase();
+                                                System.out.println("O que voce deseja editar?");
+                                                System.out.println("1)Nome");
+                                                System.out.println("2)Marca");
+                                                System.out.println("3)Cor");
+                                                System.out.println("4)Valor");
+                                                System.out.println("5)Tamanho");
+                                                System.out.println("6)Departamento");
+                                                System.out.println("7)Tipo de trava");
+                                                System.out.println("8)Modelo de cadarco");
+
+                                                recebeString = ler.nextLine();
+                                                opcaoProduto = Integer.parseInt(recebeString);
+
+                                                novaChuteira = new Chuteira(nome, numProdutosCadas, opcaoProduto,
+                                                        listaNome, listaMarca, listaTamanho, listaCor,
+                                                        listaValorProduto, listaCategoria, listaDepartamento,
+                                                        listaTipoTrava, listaModeloCadarco, opcaoVendedor1);
+                                                System.out.println("Digite B para voltar!");
+                                                recebeString = ler.nextLine().toUpperCase();
                                                 break;
                                             // EDITAR CHINELO
                                             case 4:
+                                                System.out.println("Digite o nome do produto");
+                                                nome = ler.nextLine().toUpperCase();
+                                                System.out.println("O que voce deseja editar?");
+                                                System.out.println("1)Nome");
+                                                System.out.println("2)Marca");
+                                                System.out.println("3)Cor");
+                                                System.out.println("4)Valor");
+                                                System.out.println("5)Tamanho");
+                                                System.out.println("6)Tipo de correia");
+                                                System.out.println("7)Estetica");
+
+                                                recebeString = ler.nextLine();
+                                                opcaoProduto = Integer.parseInt(recebeString);
+
+                                                novoChinelo = new Chinelo(nome, numProdutosCadas, opcaoProduto,
+                                                        listaNome, listaMarca, listaTamanho, listaCor,
+                                                        listaValorProduto, listaCategoria, listaTipoCorreia,
+                                                        listaEstetica, opcaoVendedor1);
+                                                System.out.println("Digite B para voltar!");
+                                                recebeString = ler.nextLine().toUpperCase();
                                                 break;
                                             // EDITAR TENIS
                                             case 5:
@@ -240,9 +335,25 @@ public class Main {
                                                 break;
                                             // APAGAR CHUTEIRA
                                             case 3:
+                                                System.out.println("Qual o nome do produto que deseja apagar?");
+                                                nome = ler.nextLine().toUpperCase();
+                                                novaChuteira = new Chuteira(nome, numProdutosCadas, opcaoProduto,
+                                                        listaNome, listaMarca, listaTamanho, listaCor,
+                                                        listaValorProduto, listaCategoria, listaDepartamento,
+                                                        listaTipoTrava, listaModeloCadarco, opcaoVendedor1);
+                                                System.out.println("Digite B para voltar!");
+                                                recebeString = ler.nextLine().toUpperCase();
                                                 break;
                                             // APAGAR CHINELO
                                             case 4:
+                                                System.out.println("Qual o nome do produto que deseja apagar?");
+                                                nome = ler.nextLine().toUpperCase();
+                                                novoChinelo = new Chinelo(nome, numProdutosCadas, opcaoProduto,
+                                                        listaNome, listaMarca, listaTamanho, listaCor,
+                                                        listaValorProduto, listaCategoria, listaTipoCorreia,
+                                                        listaEstetica, opcaoVendedor1);
+                                                System.out.println("Digite B para voltar!");
+                                                recebeString = ler.nextLine().toUpperCase();
                                                 break;
                                             // APAGAR TENIS
                                             case 5:
