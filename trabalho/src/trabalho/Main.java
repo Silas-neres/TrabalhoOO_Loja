@@ -117,9 +117,10 @@ public class Main {
                                                 alturaSalto = Double.parseDouble(recebeString);
 
                                                 novaBota = new Bota(nome, marca, cor, valorProduto, tamanho,
-                                                opcaoProduto, numProdutosCadas,circunferenciaCano,alturaSalto, listaNome,
-                                                listaMarca, listaTamanho, listaCor, listaValorProduto,
-                                                listaCategoria,listaCircunferenciaCano,listaAlturaSalto);
+                                                        opcaoProduto, numProdutosCadas, circunferenciaCano, alturaSalto,
+                                                        listaNome, listaMarca, listaTamanho, listaCor,
+                                                        listaValorProduto, listaCategoria, listaCircunferenciaCano,
+                                                        listaAlturaSalto);
 
                                                 break;
                                             // ADICIONAR CHUTEIRA
@@ -171,7 +172,7 @@ public class Main {
                                                 break;
                                             // EDITAR BOTA
                                             case 2:
-                                            System.out.println("Digite o nome do produto");
+                                                System.out.println("Digite o nome do produto");
                                                 nome = ler.nextLine().toUpperCase();
                                                 System.out.println("O que voce deseja editar?");
                                                 System.out.println("1)Nome");
@@ -185,10 +186,10 @@ public class Main {
                                                 recebeString = ler.nextLine();
                                                 opcaoProduto = Integer.parseInt(recebeString);
 
-                                                novaBota = new Bota(nome, numProdutosCadas, opcaoProduto,listaCircunferenciaCano,listaAlturaSalto,
-                                                        listaNome, listaMarca, listaTamanho, listaCor,
-                                                        listaValorProduto, listaCategoria,
-                                                        opcaoVendedor1);
+                                                novaBota = new Bota(nome, numProdutosCadas, opcaoProduto,
+                                                        listaCircunferenciaCano, listaAlturaSalto, listaNome,
+                                                        listaMarca, listaTamanho, listaCor, listaValorProduto,
+                                                        listaCategoria, opcaoVendedor1);
                                                 System.out.println("Digite B para voltar!");
                                                 recebeString = ler.nextLine().toUpperCase();
                                                 break;
@@ -228,6 +229,14 @@ public class Main {
                                                 break;
                                             // APAGAR BOTA
                                             case 2:
+                                                System.out.println("Qual o nome do produto que deseja apagar?");
+                                                nome = ler.nextLine().toUpperCase();
+                                                novaBota = new Bota(nome, numProdutosCadas, opcaoProduto,
+                                                        listaCircunferenciaCano, listaAlturaSalto, listaNome,
+                                                        listaMarca, listaTamanho, listaCor, listaValorProduto,
+                                                        listaCategoria, opcaoVendedor1);
+                                                System.out.println("Digite B para voltar!");
+                                                recebeString = ler.nextLine().toUpperCase();
                                                 break;
                                             // APAGAR CHUTEIRA
                                             case 3:
@@ -270,12 +279,13 @@ public class Main {
                                                 System.out.println("Tamanho: " + listaTamanho[i]);
                                                 System.out.println("Cor: " + listaCor[i]);
                                                 System.out.println("Valor: R$" + listaValorProduto[i]);
-                                                System.out.println("Circunferencia do cano:" + listaCircunferenciaCano[i]);
+                                                System.out.println(
+                                                        "Circunferencia do cano:" + listaCircunferenciaCano[i]);
                                                 System.out.println("Altura do salto: " + listaAlturaSalto[i]);
                                                 System.out.println("========================================");
                                             }
                                         }
-                                        
+
                                         System.out.println("Digite B para voltar!");
                                         recebeString = ler.nextLine().toUpperCase();
                                         break;
