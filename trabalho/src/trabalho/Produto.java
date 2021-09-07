@@ -1,9 +1,8 @@
 package trabalho;
 
 import java.util.Scanner;
-import java.util.Arrays;
 
-public class Produto {
+public abstract class Produto {
 
     String marca;
     String nome;
@@ -75,7 +74,6 @@ public class Produto {
     public void cadastrar(String nome, String marca, int tamanho, String cor, double valorProduto, int categoria,
             int numProdutosCadas, String listaMarca[], String listaNome[], int listaTamanho[], String listaCor[],
             Double listaValorProduto[], int listaCategoria[]) {
-        int i;
         int j = numProdutosCadas;
 
         for (i = j; i <= j; i++) {
@@ -153,7 +151,6 @@ public class Produto {
             int[] listaTamanho, String[] listaCor, Double[] listaValorProduto, int[] listaCategoria) {
 
         int i, j = numProdutosCadas, checar = 0, contador;
-        String recebeString;
 
         for (i = 0; i < j; i++) {
 

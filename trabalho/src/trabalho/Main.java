@@ -12,9 +12,10 @@ public class Main {
         int opcao0, cpfVendedor, opcaoVendedor1, opcaoProduto, tamanho, i;
         int numProdutosCadas = 15;
         char opcaoVendedor, opcaoCliente, continuar;
-        Double valorProduto;
+        Double valorProduto, circunferenciaCano, alturaSalto;
         Vendedor novoVendedor = new Vendedor();
         Sapatilha novaSapatilha = new Sapatilha();
+        Bota novaBota = new Bota();
 
         String listaMarca[] = new String[100];
         String listaNome[] = new String[100];
@@ -24,6 +25,8 @@ public class Main {
         int listaCategoria[] = new int[100];
         String listaTipoBico[] = new String[100];
         String listaMaterial[] = new String[100];
+        Double listaCircunferenciaCano[] = new Double[100];
+        Double listaAlturaSalto[] = new Double[100];
 
         do {
             menu();
@@ -31,6 +34,7 @@ public class Main {
             opcao0 = Integer.parseInt(recebeString);
 
             switch (opcao0) {
+                // VENDEDOR
                 case 1:
 
                     System.out.println("Voce ja e cadastrado? S/N");
@@ -61,6 +65,7 @@ public class Main {
                                         recebeString = ler.nextLine();
                                         opcaoProduto = Integer.parseInt(recebeString);
                                         switch (opcaoProduto) {
+                                            // ADICIONAR SAPATILHA
                                             case 1:
                                                 System.out.println("Digite o nome do produto.");
                                                 nome = ler.nextLine().toUpperCase();
@@ -90,19 +95,47 @@ public class Main {
                                                 recebeString = ler.nextLine().toUpperCase();
 
                                                 break;
+                                            // ADICIONAR BOTA
                                             case 2:
-                                                break;
-                                            case 3:
-                                                break;
-                                            case 4:
-                                                break;
-                                            case 5:
+                                                System.out.println("Digite o nome do produto.");
+                                                nome = ler.nextLine().toUpperCase();
+                                                System.out.println("Digite a marca do produto.");
+                                                marca = ler.nextLine().toUpperCase();
+                                                System.out.println("Digite o tamanho do produto.");
+                                                recebeString = ler.nextLine();
+                                                tamanho = Integer.parseInt(recebeString);
+                                                System.out.println("Digite a cor do produto.");
+                                                cor = ler.nextLine().toUpperCase();
+                                                System.out.println("Digite o valor do produto.");
+                                                recebeString = ler.nextLine();
+                                                valorProduto = Double.parseDouble(recebeString);
+                                                System.out.println("Digite circunferencia do cano da bota.");
+                                                recebeString = ler.nextLine();
+                                                circunferenciaCano = Double.parseDouble(recebeString);
+                                                System.out.println("Digite a altura do salto.");
+                                                recebeString = ler.nextLine();
+                                                alturaSalto = Double.parseDouble(recebeString);
+
+                                                novaBota = new Bota(nome, marca, cor, valorProduto, tamanho,
+                                                opcaoProduto, numProdutosCadas,circunferenciaCano,alturaSalto, listaNome,
+                                                listaMarca, listaTamanho, listaCor, listaValorProduto,
+                                                listaCategoria,listaCircunferenciaCano,listaAlturaSalto);
 
                                                 break;
+                                            // ADICIONAR CHUTEIRA
+                                            case 3:
+                                                break;
+                                            // ADICIONAR CHINELO
+                                            case 4:
+                                                break;
+                                            // ADICIONAR TENIS
+                                            case 5:
+                                                break;
+                                            // SAIR
                                             default:
                                         }
                                         System.out.println("Digite B para voltar!");
-                                                recebeString = ler.nextLine().toUpperCase();
+                                        recebeString = ler.nextLine().toUpperCase();
                                         break;
                                     // EDITAR UM PRODUTO
                                     case 4:
@@ -111,7 +144,7 @@ public class Main {
                                         recebeString = ler.nextLine();
                                         opcaoProduto = Integer.parseInt(recebeString);
                                         switch (opcaoProduto) {
-
+                                            // EDITAR SAPATILHA
                                             case 1:
 
                                                 System.out.println("Digite o nome do produto");
@@ -132,23 +165,48 @@ public class Main {
                                                         listaNome, listaMarca, listaTamanho, listaCor,
                                                         listaValorProduto, listaCategoria, listaTipoBico, listaMaterial,
                                                         opcaoVendedor1);
-                                                        System.out.println("Digite B para voltar!");
+                                                System.out.println("Digite B para voltar!");
                                                 recebeString = ler.nextLine().toUpperCase();
 
                                                 break;
+                                            // EDITAR BOTA
                                             case 2:
+                                            System.out.println("Digite o nome do produto");
+                                                nome = ler.nextLine().toUpperCase();
+                                                System.out.println("O que voce deseja editar?");
+                                                System.out.println("1)Nome");
+                                                System.out.println("2)Marca");
+                                                System.out.println("3)Cor");
+                                                System.out.println("4)Valor");
+                                                System.out.println("5)Tamanho");
+                                                System.out.println("6)Circunferencia do cano");
+                                                System.out.println("7)Altura do salto");
+
+                                                recebeString = ler.nextLine();
+                                                opcaoProduto = Integer.parseInt(recebeString);
+
+                                                novaBota = new Bota(nome, numProdutosCadas, opcaoProduto,listaCircunferenciaCano,listaAlturaSalto,
+                                                        listaNome, listaMarca, listaTamanho, listaCor,
+                                                        listaValorProduto, listaCategoria,
+                                                        opcaoVendedor1);
+                                                System.out.println("Digite B para voltar!");
+                                                recebeString = ler.nextLine().toUpperCase();
                                                 break;
+                                            // EDITAR CHUTEIRA
                                             case 3:
                                                 break;
+                                            // EDITAR CHINELO
                                             case 4:
                                                 break;
+                                            // EDITAR TENIS
                                             case 5:
                                                 break;
+                                            // SAIR
                                             default:
 
                                         }
                                         System.out.println("Digite B para voltar!");
-                                                recebeString = ler.nextLine().toUpperCase();
+                                        recebeString = ler.nextLine().toUpperCase();
                                         break;
                                     // APAGAR PRODUTO
                                     case 5:
@@ -157,25 +215,41 @@ public class Main {
                                         recebeString = ler.nextLine();
                                         opcaoProduto = Integer.parseInt(recebeString);
                                         switch (opcaoProduto) {
-
+                                            // APAGAR SAPATILHA
                                             case 1:
                                                 System.out.println("Qual o nome do produto que deseja apagar?");
                                                 nome = ler.nextLine().toUpperCase();
                                                 novaSapatilha = new Sapatilha(nome, numProdutosCadas, opcaoProduto,
-                                                listaNome, listaMarca, listaTamanho, listaCor,
-                                                listaValorProduto, listaCategoria, listaTipoBico, listaMaterial,
-                                                opcaoVendedor1);
+                                                        listaNome, listaMarca, listaTamanho, listaCor,
+                                                        listaValorProduto, listaCategoria, listaTipoBico, listaMaterial,
+                                                        opcaoVendedor1);
                                                 System.out.println("Digite B para voltar!");
                                                 recebeString = ler.nextLine().toUpperCase();
-                                            break;
+                                                break;
+                                            // APAGAR BOTA
+                                            case 2:
+                                                break;
+                                            // APAGAR CHUTEIRA
+                                            case 3:
+                                                break;
+                                            // APAGAR CHINELO
+                                            case 4:
+                                                break;
+                                            // APAGAR TENIS
+                                            case 5:
+                                                break;
+                                            // SAIR
+                                            default:
+
                                         }
                                         // VER ESTOQUE
                                     case 6:
                                         System.out.println("ESTOQUE DA LOJA:");
                                         System.out.println("SAPATILHA:");
-                                        for (i = 0; i < numProdutosCadas; i++) {
+                                        System.out.println("========================================");
+                                        for (i = 0; i <= numProdutosCadas; i++) {
                                             if (listaCategoria[i] == 1) {
-                                                System.out.println("========================================");
+
                                                 System.out.println("Nome: " + listaNome[i]);
                                                 System.out.println("Marca: " + listaMarca[i]);
                                                 System.out.println("Tamanho: " + listaTamanho[i]);
@@ -185,10 +259,25 @@ public class Main {
                                                 System.out.println("Material: " + listaMaterial[i]);
                                                 System.out.println("========================================");
                                             }
-
                                         }
+                                        System.out.println("BOTA:");
+                                        System.out.println("========================================");
+                                        for (i = 0; i <= numProdutosCadas; i++) {
+                                            if (listaCategoria[i] == 2) {
+
+                                                System.out.println("Nome: " + listaNome[i]);
+                                                System.out.println("Marca: " + listaMarca[i]);
+                                                System.out.println("Tamanho: " + listaTamanho[i]);
+                                                System.out.println("Cor: " + listaCor[i]);
+                                                System.out.println("Valor: R$" + listaValorProduto[i]);
+                                                System.out.println("Circunferencia do cano:" + listaCircunferenciaCano[i]);
+                                                System.out.println("Altura do salto: " + listaAlturaSalto[i]);
+                                                System.out.println("========================================");
+                                            }
+                                        }
+                                        
                                         System.out.println("Digite B para voltar!");
-                                                recebeString = ler.nextLine().toUpperCase();
+                                        recebeString = ler.nextLine().toUpperCase();
                                         break;
                                     default:
                                         System.out.println("Opcao invalida!");
@@ -213,6 +302,7 @@ public class Main {
                     }
 
                     break;
+                // CLIENTE
                 case 2:
 
                     do {
@@ -231,6 +321,7 @@ public class Main {
                                         break;
                                     case 2:
                                         break;
+
                                     case 3:
                                         break;
                                     default:
