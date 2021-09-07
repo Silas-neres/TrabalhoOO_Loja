@@ -12,7 +12,6 @@ public class Sapatilha extends Produto {
     int opcao;
 
     String recebeString;
-    private String[] listaMaterial;
 
     public Sapatilha() {
 
@@ -22,8 +21,6 @@ public class Sapatilha extends Produto {
             int numProdutosCadas, String tipoBico, String material, String[] listaNome, String[] listaMarca,
             int[] listaTamanho, String[] listaCor, Double[] listaValorProduto, int[] listaCategoria,
             String[] listaTipoBico, String[] listaMaterial) {
-
-        this.listaMaterial = listaMaterial;
         setNome(nome);
         setMarca(marca);
         setCor(cor);
@@ -55,6 +52,7 @@ public class Sapatilha extends Produto {
         } else if (opcaoVendedor1 == 5) {
             apagar(nome, numProdutosCadas, opcaoProduto, listaNome, listaMarca, listaTamanho, listaCor,
                     listaValorProduto, listaCategoria);
+            completarApagar(nome, numProdutosCadas, opcaoProduto, listaNome, listaTipoBico, listaMaterial);
         }
 
     }
@@ -69,8 +67,6 @@ public class Sapatilha extends Produto {
 
             listaTipoBico[i] = tipoBico;
             listaMaterial[i] = material;
-            System.out.println(listaTipoBico[i]);
-            System.out.println(listaMaterial[i]);
 
         }
 
@@ -106,6 +102,34 @@ public class Sapatilha extends Produto {
         if (checar == numProdutosCadas) {
             System.out.println("PRODUTO NAO ENCONTRADO");
         }
+    }
+
+    public void completarApagar(String nome, int numProdutosCadas, int opcaoProduto, String listaNome[],
+            String listaTipoBico[], String listaMaterial[]) {
+        int i, j = numProdutosCadas, checar = 0, contador;
+
+        for (i = 0; i < j; i++) {
+
+            if (nome.equalsIgnoreCase(listaNome[i])) {
+
+                listaTipoBico[i] = null;
+                listaMaterial[i] = null;
+
+                for (contador = i; contador <= j; contador++) {
+                    listaTipoBico[contador] = listaTipoBico[contador + 1];
+                    listaMaterial[contador] = listaMaterial[contador + 1];
+                }
+
+            } else {
+
+                checar++;
+
+            }
+        }
+        if (checar == numProdutosCadas) {
+            System.out.println("PRODUTO NAO ENCONTRADO");
+        }
+
     }
 
     public String getTipoBico() {
