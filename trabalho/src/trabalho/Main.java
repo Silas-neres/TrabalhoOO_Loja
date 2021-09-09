@@ -501,7 +501,7 @@ public class Main {
                                             break;
                                         // RELATORIO
                                         case 7:
-
+                                            System.out.println("A renda total da loja  é R$" + rendaTotal);
                                             System.out.println("Digite B para voltar!");
                                             recebeString = ler.nextLine().toUpperCase();
                                             break;
