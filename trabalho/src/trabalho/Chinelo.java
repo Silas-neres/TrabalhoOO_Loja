@@ -12,7 +12,8 @@ public class Chinelo extends Produto {
     public Chinelo(String nome, String marca, String cor, Double valorProduto, int tamanho, int opcaoProduto,
             int numProdutosCadas, String tipoCorreia, String estetica, String[] listaNome, String[] listaMarca,
             int[] listaTamanho, String[] listaCor, Double[] listaValorProduto, int[] listaCategoria,
-            String[] listaTipoCorreia, String[] listaEstetica) {
+            String[] listaTipoCorreia, String[] listaEstetica, int quantidade, int[] listaQuantidade, String id,
+            String[] listaId) {
 
         setNome(nome);
         setMarca(marca);
@@ -23,16 +24,18 @@ public class Chinelo extends Produto {
         setNumProdutosCadastrados(numProdutosCadas);
         setTipoCorreia(tipoCorreia);
         setEstetica(estetica);
+        setQuantidade(quantidade);
+        setId(id);
 
         cadastrar(nome, marca, tamanho, cor, valorProduto, categoria, numProdutosCadas, listaMarca, listaNome,
-                listaTamanho, listaCor, listaValorProduto, listaCategoria);
+                listaTamanho, listaCor, listaValorProduto, listaCategoria, quantidade, listaQuantidade, id, listaId);
 
         completarCadastro(numProdutosCadas, tipoCorreia, estetica, listaTipoCorreia, listaEstetica);
     }
 
     public Chinelo(String nome, int numProdutosCadas, int opcaoProduto, String[] listaNome, String[] listaMarca,
             int[] listaTamanho, String[] listaCor, Double[] listaValorProduto, int[] listaCategoria,
-            String[] listaTipoCorreia, String[] listaEstetica, int opcaoVendedor1) {
+            String[] listaTipoCorreia, String[] listaEstetica, int opcaoVendedor1, int[] listaQuantidade,String[] listaId) {
 
         setNome(nome);
         setNumProdutosCadastrados(numProdutosCadas);
@@ -40,11 +43,11 @@ public class Chinelo extends Produto {
 
         if (opcaoVendedor1 == 4) {
             editar(nome, numProdutosCadas, opcaoProduto, listaMarca, listaNome, listaTamanho, listaCor,
-                    listaValorProduto, listaCategoria);
+                    listaValorProduto, listaCategoria, listaQuantidade,listaId);
             completarEditar(nome, numProdutosCadas, opcaoProduto, listaNome, listaTipoCorreia, listaEstetica);
         } else if (opcaoVendedor1 == 5) {
             apagar(nome, numProdutosCadas, opcaoProduto, listaNome, listaMarca, listaTamanho, listaCor,
-                    listaValorProduto, listaCategoria);
+                    listaValorProduto, listaCategoria, listaQuantidade,listaId);
             completarApagar(nome, numProdutosCadas, opcaoProduto, listaNome, listaTipoCorreia, listaEstetica);
         }
 
@@ -73,13 +76,13 @@ public class Chinelo extends Produto {
             if (nome.equalsIgnoreCase(listaNome[i])) {
 
                 switch (opcaoProduto) {
-                    case 6:
+                    case 8:
 
                         System.out.println("Para qual departamento voce deseja mudar?");
                         listaTipoCorreia[i] = ler.nextLine().toUpperCase();
 
                         break;
-                    case 7:
+                    case 9:
                         System.out.println("Para qual tipo de trava voce deseja mudar?");
                         listaEstetica[i] = ler.nextLine().toUpperCase();
                         break;
@@ -99,7 +102,7 @@ public class Chinelo extends Produto {
     public void completarApagar(String nome, int numProdutosCadas, int opcaoProduto, String[] listaNome,
             String[] listaTipoCorreia, String[] listaEstetica) {
 
-                int i, j = numProdutosCadas, checar = 0, contador;
+        int i, j = numProdutosCadas, checar = 0, contador;
         for (i = 0; i < j; i++) {
 
             if (nome.equalsIgnoreCase(listaNome[i])) {

@@ -13,7 +13,8 @@ public class Chuteira extends Produto {
     public Chuteira(String nome, String marca, String cor, Double valorProduto, int tamanho, int opcaoProduto,
             int numProdutosCadas, String departamento, String tipoTrava, String modeloCadarco, String[] listaNome,
             String[] listaMarca, int[] listaTamanho, String[] listaCor, Double[] listaValorProduto,
-            int[] listaCategoria, String[] listaDepartamento, String[] listaTipoTrava, String[] listaModeloCadarco) {
+            int[] listaCategoria, String[] listaDepartamento, String[] listaTipoTrava, String[] listaModeloCadarco,
+            int quantidade, int[] listaQuantidade, String id, String[] listaId) {
 
         setNome(nome);
         setMarca(marca);
@@ -25,9 +26,11 @@ public class Chuteira extends Produto {
         setDepartamento(departamento);
         setTipoTrava(tipoTrava);
         setModeloCadarco(modeloCadarco);
+        setQuantidade(quantidade);
+        setId(id);
 
         cadastrar(nome, marca, tamanho, cor, valorProduto, categoria, numProdutosCadas, listaMarca, listaNome,
-                listaTamanho, listaCor, listaValorProduto, listaCategoria);
+                listaTamanho, listaCor, listaValorProduto, listaCategoria, quantidade, listaQuantidade, id, listaId);
         completarCadastro(numProdutosCadas, departamento, tipoTrava, modeloCadarco, listaDepartamento, listaTipoTrava,
                 listaModeloCadarco);
 
@@ -35,7 +38,8 @@ public class Chuteira extends Produto {
 
     public Chuteira(String nome, int numProdutosCadas, int opcaoProduto, String[] listaNome, String[] listaMarca,
             int[] listaTamanho, String[] listaCor, Double[] listaValorProduto, int[] listaCategoria,
-            String[] listaDepartamento, String[] listaTipoTrava, String[] listaModeloCadarco, int opcaoVendedor1) {
+            String[] listaDepartamento, String[] listaTipoTrava, String[] listaModeloCadarco, int opcaoVendedor1,
+            int[] listaQuantidade,String[] listaId) {
 
         setNome(nome);
         setNumProdutosCadastrados(numProdutosCadas);
@@ -43,12 +47,14 @@ public class Chuteira extends Produto {
 
         if (opcaoVendedor1 == 4) {
             editar(nome, numProdutosCadas, opcaoProduto, listaMarca, listaNome, listaTamanho, listaCor,
-                    listaValorProduto, listaCategoria);
-            completarEditar(nome, numProdutosCadas, opcaoProduto, listaNome, listaDepartamento, listaTipoTrava, listaModeloCadarco);
+                    listaValorProduto, listaCategoria, listaQuantidade,listaId);
+            completarEditar(nome, numProdutosCadas, opcaoProduto, listaNome, listaDepartamento, listaTipoTrava,
+                    listaModeloCadarco);
         } else if (opcaoVendedor1 == 5) {
             apagar(nome, numProdutosCadas, opcaoProduto, listaNome, listaMarca, listaTamanho, listaCor,
-                    listaValorProduto, listaCategoria);
-            completarApagar(nome, numProdutosCadas, opcaoProduto, listaNome, listaDepartamento, listaTipoTrava, listaModeloCadarco);
+                    listaValorProduto, listaCategoria, listaQuantidade,listaId);
+            completarApagar(nome, numProdutosCadas, opcaoProduto, listaNome, listaDepartamento, listaTipoTrava,
+                    listaModeloCadarco);
         }
 
     }
@@ -77,17 +83,17 @@ public class Chuteira extends Produto {
             if (nome.equalsIgnoreCase(listaNome[i])) {
 
                 switch (opcaoProduto) {
-                    case 6:
+                    case 8:
 
                         System.out.println("Para qual departamento voce deseja mudar?");
                         listaDepartamento[i] = ler.nextLine().toUpperCase();
 
                         break;
-                    case 7:
+                    case 9:
                         System.out.println("Para qual tipo de trava voce deseja mudar?");
                         listaTipoTrava[i] = ler.nextLine().toUpperCase();
                         break;
-                    case 8:
+                    case 10:
                         System.out.println("Para qual modelo de cadarco voce deseja mudar?");
                         listaModeloCadarco[i] = ler.nextLine().toUpperCase();
                         break;
@@ -101,10 +107,11 @@ public class Chuteira extends Produto {
         if (checar == numProdutosCadas) {
             System.out.println("PRODUTO NAO ENCONTRADO");
         }
-        
+
     }
 
-    public void completarApagar(String nome, int numProdutosCadas,int opcaoProduto,String [] listaNome,String [] listaDepartamento,String [] listaTipoTrava,String [] listaModeloCadarco){
+    public void completarApagar(String nome, int numProdutosCadas, int opcaoProduto, String[] listaNome,
+            String[] listaDepartamento, String[] listaTipoTrava, String[] listaModeloCadarco) {
         int i, j = numProdutosCadas, checar = 0, contador;
 
         for (i = 0; i < j; i++) {
@@ -118,7 +125,7 @@ public class Chuteira extends Produto {
                 for (contador = i; contador <= j; contador++) {
                     listaDepartamento[contador] = listaDepartamento[contador + 1];
                     listaTipoTrava[contador] = listaTipoTrava[contador + 1];
-                    listaModeloCadarco[contador] =  listaModeloCadarco[contador + 1];
+                    listaModeloCadarco[contador] = listaModeloCadarco[contador + 1];
                 }
             } else {
 

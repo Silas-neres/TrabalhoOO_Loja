@@ -5,13 +5,7 @@ import java.util.Scanner;
 public class Sapatilha extends Produto {
 
     private String tipoBico;
-    private String material;
-
-    Scanner ler = new Scanner(System.in);
-
-    int opcao;
-
-    String recebeString;
+    private String material;    
 
     public Sapatilha() {
 
@@ -20,7 +14,8 @@ public class Sapatilha extends Produto {
     public Sapatilha(String nome, String marca, String cor, Double valorProduto, int tamanho, int opcaoProduto,
             int numProdutosCadas, String tipoBico, String material, String[] listaNome, String[] listaMarca,
             int[] listaTamanho, String[] listaCor, Double[] listaValorProduto, int[] listaCategoria,
-            String[] listaTipoBico, String[] listaMaterial) {
+            String[] listaTipoBico, String[] listaMaterial,int quantidade, int[] listaQuantidade,String id, String[] listaId) {
+
         setNome(nome);
         setMarca(marca);
         setCor(cor);
@@ -30,16 +25,19 @@ public class Sapatilha extends Produto {
         setNumProdutosCadastrados(numProdutosCadas);
         setTipoBico(tipoBico);
         setMaterial(material);
+        setQuantidade(quantidade);
+        setId(id);
+        
 
         cadastrar(nome, marca, tamanho, cor, valorProduto, categoria, numProdutosCadas, listaMarca, listaNome,
-                listaTamanho, listaCor, listaValorProduto, listaCategoria);
+                listaTamanho, listaCor, listaValorProduto, listaCategoria,quantidade,listaQuantidade, id, listaId);
         completarCadastro(tipoBico, material, numProdutosCadas, listaTipoBico, listaMaterial);
 
     }
 
     public Sapatilha(String nome, int numProdutosCadas, int opcaoProduto, String[] listaNome, String[] listaMarca,
             int[] listaTamanho, String[] listaCor, Double[] listaValorProduto, int[] listaCategoria,
-            String[] listaTipoBico, String[] listaMaterial, int opcaoVendedor1) {
+            String[] listaTipoBico, String[] listaMaterial, int opcaoVendedor1,int [] listaQuantidade, String[] listaId) {
 
         setNome(nome);
         setNumProdutosCadastrados(numProdutosCadas);
@@ -47,11 +45,11 @@ public class Sapatilha extends Produto {
 
         if (opcaoVendedor1 == 4) {
             editar(nome, numProdutosCadas, opcaoProduto, listaMarca, listaNome, listaTamanho, listaCor,
-                    listaValorProduto, listaCategoria);
+                    listaValorProduto, listaCategoria,listaQuantidade,listaId);
             completarEditar(nome, numProdutosCadas, opcaoProduto, listaNome, listaTipoBico, listaMaterial);
         } else if (opcaoVendedor1 == 5) {
             apagar(nome, numProdutosCadas, opcaoProduto, listaNome, listaMarca, listaTamanho, listaCor,
-                    listaValorProduto, listaCategoria);
+                    listaValorProduto, listaCategoria,listaQuantidade,listaId);
             completarApagar(nome, numProdutosCadas, opcaoProduto, listaNome, listaTipoBico, listaMaterial);
         }
 
@@ -76,19 +74,22 @@ public class Sapatilha extends Produto {
             String listaTipoBico[], String listaMaterial[]) {
 
         int i, j = numProdutosCadas, checar = 0;
+        String recebeString;
+
+        Scanner ler = new Scanner(System.in);
 
         for (i = 0; i < j; i++) {
             if (nome.equalsIgnoreCase(listaNome[i])) {
 
                 switch (opcaoProduto) {
-                    case 6:
+                    case 8:
 
                         System.out.println("Para qual tipo de bico deseja mudar?");
                         recebeString = ler.nextLine().toUpperCase();
                         listaTipoBico[i] = recebeString;
 
                         break;
-                    case 7:
+                    case 9:
                         System.out.println("Para qual material deseja mudar?");
                         recebeString = ler.nextLine().toUpperCase();
                         listaMaterial[i] = recebeString;

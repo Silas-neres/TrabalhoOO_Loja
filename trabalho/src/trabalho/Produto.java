@@ -2,14 +2,18 @@ package trabalho;
 
 import java.util.Scanner;
 
+import javax.swing.Spring;
+
 public abstract class Produto {
 
     String marca;
     String nome;
+    String id;
     int tamanho;
     String cor;
     Double valorProduto;
     int categoria;
+    int quantidade;
     int totalProdutos;
 
     Scanner ler = new Scanner(System.in);
@@ -17,6 +21,14 @@ public abstract class Produto {
 
     public String getNome() {
         return nome;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public void setNome(String nome) {
@@ -71,9 +83,18 @@ public abstract class Produto {
         this.totalProdutos = numProdutosCadas;
     }
 
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(Integer quantidade) {
+        this.quantidade = quantidade;
+    }
+
     public void cadastrar(String nome, String marca, int tamanho, String cor, double valorProduto, int categoria,
             int numProdutosCadas, String listaMarca[], String listaNome[], int listaTamanho[], String listaCor[],
-            Double listaValorProduto[], int listaCategoria[]) {
+            Double listaValorProduto[], int listaCategoria[], int quantidade, int[] listaQuantidade, String id,
+            String[] listaId) {
         int j = numProdutosCadas;
 
         for (i = j; i <= j; i++) {
@@ -84,18 +105,15 @@ public abstract class Produto {
             listaCor[i] = cor;
             listaValorProduto[i] = valorProduto;
             listaCategoria[i] = categoria;
-            System.out.println("Nome:" + listaNome[i]);
-            System.out.println("Marca:" + listaMarca[i]);
-            System.out.println("Tamanho:" + listaTamanho[i]);
-            System.out.println("Cor:" + listaCor[i]);
-            System.out.println("Valor:" + listaValorProduto[i]);
-            System.out.println("Categoria:" + listaCategoria[i]);
+            listaQuantidade[i] = quantidade;
+            listaId[i] = id;
 
         }
     }
 
     public void editar(String nome, int numProdutosCadas, int opcaoProduto, String[] listaMarca, String[] listaNome,
-            int[] listaTamanho, String[] listaCor, Double[] listaValorProduto, int[] listaCategoria) {
+            int[] listaTamanho, String[] listaCor, Double[] listaValorProduto, int[] listaCategoria,
+            int[] listaQuantidade,String[] listaId) {
 
         int i, j = numProdutosCadas, checar = 0;
         String recebeString;
@@ -133,6 +151,17 @@ public abstract class Produto {
                         recebeString = ler.nextLine().toUpperCase();
                         listaTamanho[i] = Integer.parseInt(recebeString);
                         break;
+                    case 6:
+
+                        System.out.println("Para qual quantidade deseja mudar?");
+                        recebeString = ler.nextLine().toUpperCase();
+                        listaQuantidade[i] = Integer.parseInt(recebeString);
+                        break;
+                        case 7:
+
+                        System.out.println("Para qual o id deseja mudar?");
+                        listaId[i] = ler.nextLine().toUpperCase();
+                        break;
                     default:
                 }
             } else {
@@ -148,7 +177,8 @@ public abstract class Produto {
     }
 
     public void apagar(String nome, int numProdutosCadas, int opcaoProduto, String[] listaNome, String[] listaMarca,
-            int[] listaTamanho, String[] listaCor, Double[] listaValorProduto, int[] listaCategoria) {
+            int[] listaTamanho, String[] listaCor, Double[] listaValorProduto, int[] listaCategoria,
+            int[] listaQuantidade,String[] listaId) {
 
         int i, j = numProdutosCadas, checar = 0, contador;
 
@@ -162,6 +192,8 @@ public abstract class Produto {
                 listaNome[i] = null;
                 listaTamanho[i] = 0;
                 listaValorProduto[i] = 0.0;
+                listaQuantidade[i] = 0;
+                listaId[i] = null;
 
                 for (contador = i; contador <= j; contador++) {
                     listaCategoria[contador] = listaCategoria[contador + 1];
@@ -170,6 +202,8 @@ public abstract class Produto {
                     listaNome[contador] = listaNome[contador + 1];
                     listaTamanho[contador] = listaTamanho[contador] + 1;
                     listaValorProduto[contador] = listaValorProduto[contador + 1];
+                    listaQuantidade[contador] = listaQuantidade[contador + 1];
+                    listaId[contador] =  listaId[contador+1];
                 }
 
             } else {
