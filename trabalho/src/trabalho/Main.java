@@ -143,9 +143,6 @@ public class Main {
 
                                                     numProdutosCadas++;
 
-                                                    System.out.println("Digite B para voltar!");
-                                                    recebeString = ler.nextLine().toUpperCase();
-
                                                     break;
                                                 // ADICIONAR BOTA
                                                 case 2:
