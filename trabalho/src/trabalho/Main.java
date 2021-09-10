@@ -23,6 +23,7 @@ public class Main {
         Chinelo novoChinelo = new Chinelo();
         Tenis novoTenis = new Tenis();
         Vender novaVenda = new Vender();
+        Dado dados = new Dado();
 
         String listaMarca[] = new String[100];
         String listaNome[] = new String[100];
@@ -48,6 +49,12 @@ public class Main {
         String listaTipoUsuario[] = new String[100];
         int listaQuantidade[] = new int[100];
         String listaId[] = new String[100];
+
+        dados = new Dado(listaMarca, listaNome, listaTamanho, listaCor, listaValorProduto, listaCategoria,
+                listaTipoBico, listaMaterial, listaCircunferenciaCano, listaAlturaSalto, listaDepartamento,
+                listaTipoTrava, listaModeloCadarco, listaTipoCorreia, listaEstetica, listaAlturaCano, listaModelo,
+                listaNomePessoa,listaDataNasc,listaCpf,listaTelefone,listaTipoUsuario,listaQuantidade,listaId);
+
 
         do {
             menu();
@@ -503,13 +510,16 @@ public class Main {
                                             System.out.println("Digite B para voltar!");
                                             recebeString = ler.nextLine().toUpperCase();
                                             break;
+                                        case 0:
+                                            System.out.println("Digite B para voltar!");
+                                            recebeString = ler.nextLine().toUpperCase();
+                                            break;
                                         default:
                                             System.out.println("Opcao invalida!");
                                             System.out.println("Digite B para voltar!");
                                             recebeString = ler.nextLine().toUpperCase();
                                     }
-                                } while (opcaoVendedor1 != 0
-                                        );
+                                } while (opcaoVendedor1 != 0);
                             } else {
                                 System.out.println("VENDEDOR NAO CADASTRADOR!");
                             }
@@ -573,8 +583,6 @@ public class Main {
                                                     System.out.println("Tamanho: " + listaTamanho[i]);
                                                     System.out.println("Cor: " + listaCor[i]);
                                                     System.out.println("Valor: R$" + listaValorProduto[i]);
-                                                    System.out.println("Tipo de bico:" + listaTipoBico[i]);
-                                                    System.out.println("Material: " + listaMaterial[i]);
                                                     System.out.println("Quantidade: " + listaQuantidade[i]);
                                                     System.out.println("========================================");
                                                 }
@@ -596,8 +604,6 @@ public class Main {
                                                     System.out.println("Tamanho: " + listaTamanho[i]);
                                                     System.out.println("Cor: " + listaCor[i]);
                                                     System.out.println("Valor: R$" + listaValorProduto[i]);
-                                                    System.out.println("Tipo de bico:" + listaTipoBico[i]);
-                                                    System.out.println("Material: " + listaMaterial[i]);
                                                     System.out.println("Quantidade: " + listaQuantidade[i]);
                                                     System.out.println("========================================");
                                                 }
@@ -616,8 +622,6 @@ public class Main {
                                                     System.out.println("Tamanho: " + listaTamanho[i]);
                                                     System.out.println("Cor: " + listaCor[i]);
                                                     System.out.println("Valor: R$" + listaValorProduto[i]);
-                                                    System.out.println("Tipo de bico:" + listaTipoBico[i]);
-                                                    System.out.println("Material: " + listaMaterial[i]);
                                                     System.out.println("Quantidade: " + listaQuantidade[i]);
                                                     System.out.println("========================================");
                                                 }
@@ -664,11 +668,10 @@ public class Main {
                                                     listaQuantidade, listaId);
                                             break;
                                         default:
-                                            System.out.println("Opcao invalida!");
 
                                     }
-                                } while (opcaoCliente1 != 0
-                                        );
+                                    System.out.println(opcaoCliente);
+                                } while (opcaoCliente1 != 0);
                             } else {
                                 System.out.println("CLIENTE NAO CADASTRADOR!");
                             }
