@@ -654,6 +654,7 @@ public class Main {
                                             novaPessoa = new Pessoa(listaNomePessoa, listaDataNasc, listaCpf,
                                                     listaTelefone, numPessoasCadas, identificador2, listaTipoUsuario);
                                             numPessoasCadas--;
+                                            opcaoCliente1 = 0;
                                             break;
                                         // LISTA DE PRODUTOS
                                         case 7:
@@ -668,8 +669,8 @@ public class Main {
                                             System.out.println("Opcao invalida!");
 
                                     }
-                                } while (opcaoCliente != 0
-                                        && identificador3.equalsIgnoreCase(listaNomePessoa[identificador2]));
+                                } while (opcaoCliente1 != 0
+                                        );
                             } else {
                                 System.out.println("CLIENTE NAO CADASTRADOR!");
                             }
