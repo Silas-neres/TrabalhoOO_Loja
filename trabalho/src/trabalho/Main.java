@@ -89,6 +89,7 @@ public class Main {
                                             novaPessoa = new Pessoa(listaNomePessoa, listaDataNasc, listaCpf,
                                                     listaTelefone, numPessoasCadas, identificador2, listaTipoUsuario);
                                             numPessoasCadas--;
+                                            opcaoVendedor1 = 0;
                                             break;
                                         // EDITAR VENDEDOR
                                         case 2:
@@ -511,7 +512,7 @@ public class Main {
                                             recebeString = ler.nextLine().toUpperCase();
                                     }
                                 } while (opcaoVendedor1 != 0
-                                        && identificador3.equalsIgnoreCase(listaNomePessoa[identificador2]));
+                                        );
                             } else {
                                 System.out.println("VENDEDOR NAO CADASTRADOR!");
                             }
