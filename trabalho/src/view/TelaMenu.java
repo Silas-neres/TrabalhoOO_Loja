@@ -4,15 +4,17 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+import controller.DadoController;
 import controller.TelaMenuController;
 
 public class TelaMenu extends JFrame implements ActionListener {
 
 	private final JFrame janela = new JFrame("Controle de usuarios");
 	private final JLabel titulo = new JLabel("Escolha seu usuario");
-	private final JButton vendedor = new JButton("Vendedor");
-	private final JButton cliente = new JButton("Cliente");
+	private final static JButton vendedor = new JButton("Vendedor");
+	private final static JButton cliente = new JButton("Cliente");
 	private final TelaMenuController controller;
+	public static DadoController dados = new DadoController();
 
 	public TelaMenu() {
 
@@ -36,10 +38,25 @@ public class TelaMenu extends JFrame implements ActionListener {
 		janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		janela.setVisible(true);
 	}
+	public static void main(String[] args) throws Exception {
+		TelaMenu menu = new TelaMenu();
+		
+		vendedor.addActionListener(menu);
+		cliente.addActionListener(menu);
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		this.controller.EscolhaUsuario(e);
+
+		Object botaoPressionado = e.getSource();
+
+		if (botaoPressionado == vendedor) {
+            TelaUsuario telaUsuario = new TelaUsuario(dados,0);
+            
+        } else {
+            TelaUsuario telaUsuario = new TelaUsuario(dados,1);
+        
+        }
 
 	}
 

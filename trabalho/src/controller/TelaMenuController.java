@@ -10,7 +10,6 @@ import view.TelaPessoa;
 public class TelaMenuController {
 
     private final TelaMenu view;
-    int op;
 
     public TelaMenuController(TelaMenu view) {
         super();
@@ -21,13 +20,7 @@ public class TelaMenuController {
 
         JButton botaoPressionado = (JButton) e.getSource();
 
-        if (botaoPressionado == view.getVendedor()) {
-            TelaPessoa telaPessoa = new TelaPessoa();
-            op=0;
-        } else {
-            TelaPessoa telaPessoa = new TelaPessoa();
-            op=1;
-        }
+       
     }
 
     public TelaMenu getView() {
