@@ -6,14 +6,14 @@ import java.util.List;
 import java.util.ArrayList;
 import model.Dado;
 
-public class Pessoa extends Dado {
+public class Pessoa {
 
-    String nomePessoa;
-    String dataNasc;
-    String cpf;
-    String telefone;
-    String tipoUsuario;
-    int totalPessoas;
+    protected String nomePessoa;
+    protected String dataNasc;
+    protected String cpf;
+    protected String telefone;
+    protected String tipoUsuario;
+    protected int totalPessoas;
 
     public Pessoa() {
         super();
@@ -56,10 +56,10 @@ public class Pessoa extends Dado {
         setDataNasc(dataNasc);
         setTelefone(telefone);
 
-        cadastrar(nomePessoa, cpf, dataNasc, telefone, tipoUsuario, numPessoasCadas, listaNomePessoa, listaDataNasc,
+       /* cadastrar(nomePessoa, cpf, dataNasc, telefone, tipoUsuario, numPessoasCadas, listaNomePessoa, listaDataNasc,
                 listaCpf, listaTelefone, listaTipoUsuario);
 
-        System.out.println(listaNomePessoa.get(3));
+        System.out.println(listaNomePessoa.get(3));*/
     }
 
     public void cadastrar(String nomePessoa, String cpf, String dataNasc, String telefone, String tipoUsuario,
