@@ -263,6 +263,7 @@ public class Dado {
         listaTipoBico[0] = "FINO";
         listaMaterial[0] = "BORRACHA";
         listaQuantidade[0] = 5;
+        listaCategoria[0] = 1;
 
         listaNome[1] = "SAPATILHA FEMININA PICCADILLY 250132";
         listaId[1] = "S2";
@@ -273,6 +274,7 @@ public class Dado {
         listaTipoBico[1] = "QUADRADO";
         listaMaterial[1] =  "COURO";
         listaQuantidade[1] = 3;
+        listaCategoria[1] = 1;
 
         listaNome[2] = "SAPATILHA FEMININA LAÇO NOBUNK";
         listaId[2] = "s3";
@@ -283,6 +285,7 @@ public class Dado {
         listaTipoBico[2] = "FINO";
         listaMaterial[2] = "BORRACHA";
         listaQuantidade[2] = 6;
+        listaCategoria[2] = 1;
 
         //BOTA
         listaNome[3] = "COTURNO PEGADA TRATORADO SHERPA";
@@ -294,6 +297,7 @@ public class Dado {
         listaCircunferenciaCano[3] = 25.0;
         listaAlturaSalto[3] = 7.0;
         listaQuantidade[3] = 5;
+        listaCategoria[3] = 2;
 
         listaNome[4] = "BOTA PICCADILLY CANO CURTO";
         listaId[4] = "B2";
@@ -304,6 +308,7 @@ public class Dado {
         listaCircunferenciaCano[4] = 20.0;
         listaAlturaSalto[4] = 5.0;
         listaQuantidade[4] = 4;
+        listaCategoria[4] = 2;
 
         listaNome[5] = "BOTA MISSISSIPI CANO CURTO";
         listaId[5] = "B3";
@@ -314,6 +319,7 @@ public class Dado {
         listaCircunferenciaCano[5] = 25.0;
         listaAlturaSalto[5] = 5.0;
         listaQuantidade[5] = 8;
+        listaCategoria[5] = 2;
 
         //CHUTEIRAS
         listaNome[6] = "CHUTEIRA SOCIETY NIKE BECO 2 TF";
@@ -326,6 +332,7 @@ public class Dado {
         listaDepartamento[6] = "ESPORTE";
         listaTipoTrava[6] = "PEQUENA";
         listaModeloCadarco[6] = "TRADICINAL";
+        listaCategoria[6] = 3;
 
         listaNome[7] = "CHUTEIRA BOTINHA SOCIETY";
         listaId[7] = "C2";
@@ -337,6 +344,7 @@ public class Dado {
         listaDepartamento[7] = "ESPORTE";
         listaTipoTrava[7] = "PEQUENA";
         listaModeloCadarco[7] = "SEM";
+        listaCategoria[7] = 3;
 
         listaNome[8] = "CHUTEIRA FUTSAL MIZUNO MORELIA CLUB IN N";
         listaId[8] = "C3";
@@ -348,6 +356,7 @@ public class Dado {
         listaDepartamento[8] = "ESPORTE";
         listaTipoTrava[8] = "SEM TRAVA";
         listaModeloCadarco[8] = "TRADICINAL";
+        listaCategoria[8] = 3;
 
         //CHINELO
 
@@ -360,6 +369,7 @@ public class Dado {
         listaQuantidade[9] = 8;
         listaTipoCorreia[9] = "TIRA LARGA";
         listaEstetica[9]= "LISO";
+        listaCategoria[9] = 4;
 
         listaNome[10] = "SANDALIA FEMENINO MODARE SENSE FLEX";
         listaId[10] = "CH2";
@@ -370,6 +380,7 @@ public class Dado {
         listaQuantidade[10] = 5;
         listaTipoCorreia[10] = "TRADICINAL";
         listaEstetica[10] = "LISO";
+        listaCategoria[10] = 4;
 
         listaNome[11] = "HAVAIANAS CONSERVAÇAO INTERNACIONAL";
         listaId[11] = "CH3";
@@ -380,6 +391,7 @@ public class Dado {
         listaQuantidade[11] = 8;
         listaTipoCorreia[11] = "TRADICIONAL";
         listaEstetica[11]= "ESTAMPADA";
+        listaCategoria[11] = 4;
 
         //TENIS
 
@@ -392,6 +404,7 @@ public class Dado {
         listaQuantidade[12] = 10;
         listaAlturaCano[12] = 0.0;
         listaModelo[12] = "ESPORTIVO";
+        listaCategoria[12] = 5;
         
         listaNome[13] = "TENIS ALL STAR CONVERSE CHUCK TAYLOR";
         listaId[13] = "T2";
@@ -402,6 +415,7 @@ public class Dado {
         listaQuantidade[13] = 8;
         listaAlturaCano[13] = 0.0;
         listaModelo[13] = "CANO BAIXO";
+        listaCategoria[13] = 5;
 
         listaNome[14] = "TENIS DIVERSAO CANVAS HI ZIPER";
         listaId[14] = "T3";
@@ -412,6 +426,7 @@ public class Dado {
         listaQuantidade[14] = 8;
         listaAlturaCano[14] = 22.1;
         listaModelo[14] = "CANO ALTO";
+        listaCategoria[14] = 5;
 
         //PESSOAS
 
@@ -432,10 +447,8 @@ public class Dado {
         listaDataNasc[2] = "02/12/1998";
         listaTelefone[2] = "(61)983054789";
         listaTipoUsuario[2]= "CLIENTE";
-
     }
 
     public void Dado() {
     }
-   
 }

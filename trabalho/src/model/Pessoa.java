@@ -34,13 +34,9 @@ public class Pessoa extends Dado {
         totalPessoas = pos;
        
     }
-    public String atoString(int m){
+    public String toString(){
         
         return nomePessoa;
-    }
-    public String atoString(){
-        
-        return cpf;
     }
  
 

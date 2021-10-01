@@ -18,7 +18,6 @@ public class TelaMenu extends JFrame implements ActionListener {
 
 	public TelaMenu() {
 
-		super();
 		this.controller = new TelaMenuController(this);
 		titulo.setFont(new Font("Arial", Font.BOLD, 15));
 		titulo.setBounds(120, 30, 150, 30);

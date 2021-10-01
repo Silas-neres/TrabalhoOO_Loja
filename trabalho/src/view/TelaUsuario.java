@@ -115,6 +115,7 @@ public class TelaUsuario extends JFrame implements ActionListener, ListSelection
 		if(e.getValueIsAdjusting() && src == listaUsuariosCadastrados) {
 			OpcaoCliente opcao = new OpcaoCliente(dados,listaUsuariosCadastrados.getSelectedIndex());
 		}
+        janela.setVisible(false);
 	}
 
 }

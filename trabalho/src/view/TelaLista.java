@@ -22,12 +22,12 @@ public class TelaLista extends JFrame implements ListSelectionListener {
         dados = d;
 
                 titulo.setFont(new Font("Arial", Font.BOLD, 15));
-                titulo.setBounds(110, 30, 200, 30);
+                titulo.setBounds(250, 30, 150, 30);
 
                 nomeProduto = new TelaListaController(dados).getNomePr();
 
                 listaProdutosCadastrados = new JList<String>(nomeProduto);
-                listaProdutosCadastrados.setBounds(20, 50, 350, 120);
+                listaProdutosCadastrados.setBounds(20, 50, 550, 350);
                 listaProdutosCadastrados.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
                 listaProdutosCadastrados.setVisibleRowCount(10);
 
@@ -36,7 +36,7 @@ public class TelaLista extends JFrame implements ListSelectionListener {
                 janela.add(titulo);
                 janela.add(listaProdutosCadastrados);
 
-                janela.setSize(400, 250);
+                janela.setSize(600, 450);
                 janela.setVisible(true);
 
                 listaProdutosCadastrados.addListSelectionListener(this);
@@ -45,9 +45,12 @@ public class TelaLista extends JFrame implements ListSelectionListener {
 
     @Override
     public void valueChanged(ListSelectionEvent e) {
-        // TODO Auto-generated method stub
+        Object src = e.getSource();
+
+		if(e.getValueIsAdjusting() && src == listaProdutosCadastrados) {
+			TelaProduto produto = new TelaProduto(dados,listaProdutosCadastrados.getSelectedIndex());
+		}
+        janela.setVisible(false);
         
     }
-
-  
 }
