@@ -20,10 +20,12 @@ public class TelaUsuario extends JFrame implements ActionListener, ListSelection
     String[] nomePessoa = new String[100];
     private static DadoController dados;
     int y = 0;
+    int o;
     
 
     public TelaUsuario(DadoController d, int op) {
         dados = d;
+        o=op;
         switch (op) {
             case 1:
 
@@ -112,10 +114,11 @@ public class TelaUsuario extends JFrame implements ActionListener, ListSelection
     public void valueChanged(ListSelectionEvent e) {
         Object src = e.getSource();
 
-		if(e.getValueIsAdjusting() && src == listaUsuariosCadastrados) {
+		if(e.getValueIsAdjusting() && src == listaUsuariosCadastrados && o==1) {
 			OpcaoCliente opcao = new OpcaoCliente(dados,listaUsuariosCadastrados.getSelectedIndex());
-		}
-        janela.setVisible(false);
+		}else{
+            OpcaoVendedor opcao =new OpcaoVendedor(dados,listaUsuariosCadastrados.getSelectedIndex());
+        }
 	}
 
 }

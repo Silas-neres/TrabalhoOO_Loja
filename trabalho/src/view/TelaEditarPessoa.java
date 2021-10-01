@@ -12,6 +12,7 @@ public class TelaEditarPessoa implements ActionListener {
     private final JFrame janela = new JFrame("Edicao de usuario");
     private final JLabel titulo = new JLabel("Edicao");
     private final JButton confirmar = new JButton("Confirmar");
+    private final JButton apagar = new JButton("apagar");
     private JTextField eNome = new JTextField();
     private final JTextField eCpf = new JTextField();
     private final JTextField eDataNasc = new JTextField();
@@ -45,6 +46,7 @@ public class TelaEditarPessoa implements ActionListener {
         eTelefone.setBounds(250, 250, 250, 30);
 
         confirmar.setBounds(450, 350, 100, 30);
+        apagar.setBounds(250, 350, 100, 30);
 
         janela.setLayout(null);
 		
@@ -58,12 +60,14 @@ public class TelaEditarPessoa implements ActionListener {
         janela.add(eDataNasc);
         janela.add(eTelefone);
         janela.add(confirmar);
+        janela.add(apagar);
         
         eNome.addActionListener(this);
 		eCpf.addActionListener(this);
         eDataNasc.addActionListener(this);
 		eTelefone.addActionListener(this);
         confirmar.addActionListener(this);
+        apagar.addActionListener(this);
 		
 		janela.setSize(600, 450);
 		janela.setVisible(true);
@@ -82,6 +86,9 @@ public class TelaEditarPessoa implements ActionListener {
             String telefone = eTelefone.getText().toUpperCase();
     
             TelaCadastroController telaCadastroController = new TelaCadastroController(dados, posi, nomePessoa, cpf, dataNasc, telefone);
+            janela.setVisible(false);
+        }else{
+            TelaCadastroController telaCadastroController = new TelaCadastroController(dados, posi);
             janela.setVisible(false);
         }
         

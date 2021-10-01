@@ -23,16 +23,24 @@ public class TelaUsuarioController {
     }
 
     public String[] getNomeP(int x, int y) {
-        String[] s = new String[qtdPessoa+y];
-        if (x == 1) {    
-            for (int i = 0; i < qtdPessoa+y; i++) {
-                if(tipoUser[i].equalsIgnoreCase("CLIENTE"))
-                s[i] = a[i].toString();
+        String[] s = new String[qtdPessoa + y];
+        if (x == 1) {
+            for (int i = 0; i < qtdPessoa + y; i++) {
+                if (tipoUser[i].equalsIgnoreCase("CLIENTE")) {
+                    if (a[i].toString().equals("x")) {
+                    } else {
+                        s[i] = a[i].toString();
+                    }
+                }
             }
-        }else{
-            for (int i = 0; i < qtdPessoa+y; i++) {
-                if(tipoUser[i].equalsIgnoreCase("VENDEDOR"))
-                s[i] = a[i].toString();
+        } else {
+            for (int i = 0; i < qtdPessoa + y; i++) {
+                if (tipoUser[i].equalsIgnoreCase("VENDEDOR")) {
+                    if (a[i].toString().equals("x")) {
+                    } else {
+                        s[i] = a[i].toString();
+                    }
+                }
             }
         }
         return s;
