@@ -1,4 +1,4 @@
-import java.util.Scanner;
+/*import java.util.Scanner;
 
 import javax.swing.JFrame;
 
@@ -837,4 +837,4 @@ public class Main {
         System.out.println("0)SAIR");
     }
 
-}
+}*/

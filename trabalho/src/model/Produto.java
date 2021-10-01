@@ -111,6 +111,10 @@ public abstract class Produto {
         }
     }
 
+    public String toString(){
+        return nome;
+    }
+
     public void editar(String nome, int numProdutosCadas, int opcaoProduto, String[] listaMarca, String[] listaNome,
             int[] listaTamanho, String[] listaCor, Double[] listaValorProduto, int[] listaCategoria,
             int[] listaQuantidade,String[] listaId) {

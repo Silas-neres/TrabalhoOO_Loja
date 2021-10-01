@@ -3,16 +3,16 @@ package view;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-
-import controller.*;
 import model.*;
+import controller.*;
+import javax.swing.event.*;
+import view.*;
 
-public class TelaCadastroPessoa extends JFrame implements ActionListener{
-
-    private final JFrame janela = new JFrame("Cadastro de usuario");
-    private final JLabel titulo = new JLabel("Cadastro");
+public class TelaEditarPessoa implements ActionListener {
+    private final JFrame janela = new JFrame("Edicao de usuario");
+    private final JLabel titulo = new JLabel("Edicao");
     private final JButton confirmar = new JButton("Confirmar");
-    private final JTextField eNome = new JTextField();
+    private JTextField eNome = new JTextField();
     private final JTextField eCpf = new JTextField();
     private final JTextField eDataNasc = new JTextField();
     private final JTextField eTelefone = new JTextField();
@@ -21,16 +21,12 @@ public class TelaCadastroPessoa extends JFrame implements ActionListener{
     private final JLabel dataNasc = new JLabel("Data de nascimento (xx/xx/xx): ");
     private final JLabel telefone = new JLabel("Telefone: ");
     public static DadoController dados = new DadoController();
-    public static int o;
-    public static int y1;
+    public static int posi;
     
 
-    public TelaCadastroPessoa(DadoController d,int op,int y){
-        super();
-
+    public TelaEditarPessoa(DadoController d, int pos){
         dados = d;
-        o = op;
-        y1=y;
+        posi =pos;
 
         titulo.setFont(new Font("Arial", Font.BOLD, 20));
         titulo.setBounds(250, 30, 150, 30);
@@ -74,65 +70,21 @@ public class TelaCadastroPessoa extends JFrame implements ActionListener{
 
     }
 
-    public JFrame getJanela() {
-        return janela;
-    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-    
-        JButton botaoPressionado = (JButton) e.getSource();
-    
-        if(botaoPressionado == confirmar){
-        String nomePessoa = eNome.getText().toUpperCase();
-        String cpf = eCpf.getText().toUpperCase();
-        String dataNasc = eDataNasc.getText().toUpperCase();
-        String telefone = eTelefone.getText().toUpperCase();
-        int qtdPessoa = dados.getQtdPessoas();
+        Object src = e.getSource();
 
-        TelaCadastroController telaCadastroController = new TelaCadastroController(dados,o, qtdPessoa, nomePessoa, cpf, dataNasc, telefone, y1);
-        janela.setVisible(false);
-        System.out.println(dados.getPessoas()[3]);
-        
+        if(src == confirmar){
+            String nomePessoa = eNome.getText().toUpperCase();
+            String cpf = eCpf.getText().toUpperCase();
+            String dataNasc = eDataNasc.getText().toUpperCase();
+            String telefone = eTelefone.getText().toUpperCase();
+    
+            TelaCadastroController telaCadastroController = new TelaCadastroController(dados, posi, nomePessoa, cpf, dataNasc, telefone);
+            janela.setVisible(false);
+            System.out.println(dados.getPessoas()[3]);
         }
         
-        
     }
-
-    public JButton getConfirmar() {
-        return confirmar;
-    }
-
-    public JTextField getENome() {
-        return eNome;
-    }
-
-    public JTextField getECpf() {
-        return eCpf;
-    }
-
-    public JTextField getEDataNasc() {
-        return eDataNasc;
-    }
-
-    public JTextField getETelefone() {
-        return eTelefone;
-    }
-
-    public JLabel getNome() {
-        return nome;
-    }
-
-    public JLabel getCpf() {
-        return cpf;
-    }
-
-    public JLabel getDataNasc() {
-        return dataNasc;
-    }
-
-    public JLabel getTelefone() {
-        return telefone;
-    }
-
 }

@@ -5,7 +5,6 @@ import java.awt.event.ActionEvent;
 import javax.swing.JButton;
 
 import view.TelaMenu;
-import view.TelaPessoa;
 
 public class TelaMenuController {
 

@@ -1,4 +1,7 @@
 package model;
+
+import controller.DadoController;
+
 public class Dado {
 
         String listaMarca[] = new String[100];
@@ -23,7 +26,20 @@ public class Dado {
         String listaCpf[] = new String[100];
         String listaTelefone[] = new String[100];
         String listaTipoUsuario[] = new String[100];
-        public int numPessoasCadas = 0;
+        public int numPessoasCadas = 0; 
+        public int numProdutosCadas = 0; 
+        int listaQuantidade[] = new int[100];
+        String listaId[] = new String[100];
+
+        public void cadastroPessoa(String nome,String cpf,String dataNasc,String telefone, int pos, String tipoUsuario) {
+            this.listaNomePessoa[pos] = nome;
+            this.listaCpf[pos] = cpf;
+            this.listaDataNasc[pos] = dataNasc;
+            this.listaTelefone[pos] = telefone;
+            this.listaTipoUsuario[pos] = tipoUsuario;
+            if(pos == numPessoasCadas) numPessoasCadas++;
+        }
+
         public String[] getListaMarca() {
             return listaMarca;
         }
@@ -42,6 +58,14 @@ public class Dado {
 
         public int[] getListaTamanho() {
             return listaTamanho;
+        }
+
+        public int getNumPessoasCadas() {
+            return numPessoasCadas;
+        }
+
+        public void setNumPessoasCadas(int numPessoasCadas) {
+            this.numPessoasCadas = numPessoasCadas;
         }
 
         public void setListaTamanho(int[] listaTamanho) {
@@ -216,12 +240,18 @@ public class Dado {
             this.listaId = listaId;
         }
 
-        int listaQuantidade[] = new int[100];
-        String listaId[] = new String[100];
+    public int getNumProdutosCadas() {
+            return numProdutosCadas;
+        }
+
+        public void setNumProdutosCadas(int numProdutosCadas) {
+            this.numProdutosCadas = numProdutosCadas;
+        }
 
     public Dado() {
 
         numPessoasCadas = 3;
+        numProdutosCadas = 15; 
 
         //Sapatilhas
         listaNome[0] = "SAPATILHA MOLECA LISTRADA";

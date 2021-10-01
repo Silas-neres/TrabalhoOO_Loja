@@ -2,11 +2,13 @@ package model;
 
 import java.util.Scanner;
 
+import controller.DadoController;
+
 import java.util.List;
 import java.util.ArrayList;
 import model.Dado;
 
-public class Pessoa {
+public class Pessoa extends Dado {
 
     protected String nomePessoa;
     protected String dataNasc;
@@ -18,7 +20,29 @@ public class Pessoa {
     public Pessoa() {
         super();
 
+        setNomePessoa(nomePessoa);
+        setDataNasc(dataNasc);
+        setCpf(cpf);
+
     }
+    public Pessoa(DadoController d, int o, int pos, String nP, String c, String dN, String tel) {
+        
+        nomePessoa = nP;
+        dataNasc = dN;
+        cpf = c;
+        telefone = tel;
+        totalPessoas = pos;
+       
+    }
+    public String atoString(int m){
+        
+        return nomePessoa;
+    }
+    public String atoString(){
+        
+        return cpf;
+    }
+ 
 
     public Pessoa(String nomePessoa, String cpf, String dataNasc, String telefone, String tipoUsuario,
             int numPessoasCadas, ArrayList<String> listaNomePessoa, ArrayList<String> listaDataNasc,
@@ -46,20 +70,6 @@ public class Pessoa {
         apagar(listaNomePessoa, listaDataNasc, listaCpf, listaTelefone, numPessoasCadas, identificador2,
                 listaTipoUsuario);
         System.out.println("USUARIO APAGADO!");
-    }
-
-    public Pessoa(String nomePessoa, String cpf, String dataNasc, String telefone) {
-        super();
-
-        setNomePessoa(nomePessoa);
-        setCpf(cpf);
-        setDataNasc(dataNasc);
-        setTelefone(telefone);
-
-       /* cadastrar(nomePessoa, cpf, dataNasc, telefone, tipoUsuario, numPessoasCadas, listaNomePessoa, listaDataNasc,
-                listaCpf, listaTelefone, listaTipoUsuario);
-
-        System.out.println(listaNomePessoa.get(3));*/
     }
 
     public void cadastrar(String nomePessoa, String cpf, String dataNasc, String telefone, String tipoUsuario,
@@ -146,7 +156,7 @@ public class Pessoa {
         this.dataNasc = dataNasc;
     }
 
-    public String getcpf() {
+    public String getCpf() {
         return cpf;
     }
 
