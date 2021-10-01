@@ -92,7 +92,6 @@ public class TelaCadastroPessoa extends JFrame implements ActionListener{
 
         TelaCadastroController telaCadastroController = new TelaCadastroController(dados,o, qtdPessoa, nomePessoa, cpf, dataNasc, telefone, y1);
         janela.setVisible(false);
-        System.out.println(dados.getPessoas()[3]);
         
         }
         

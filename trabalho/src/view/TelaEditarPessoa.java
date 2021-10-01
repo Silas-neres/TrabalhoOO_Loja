@@ -83,7 +83,6 @@ public class TelaEditarPessoa implements ActionListener {
     
             TelaCadastroController telaCadastroController = new TelaCadastroController(dados, posi, nomePessoa, cpf, dataNasc, telefone);
             janela.setVisible(false);
-            System.out.println(dados.getPessoas()[3]);
         }
         
     }
