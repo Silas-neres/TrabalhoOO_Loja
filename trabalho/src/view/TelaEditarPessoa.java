@@ -13,21 +13,21 @@ public class TelaEditarPessoa implements ActionListener {
     private final JLabel titulo = new JLabel("Edicao");
     private final JButton confirmar = new JButton("Confirmar");
     private final JButton apagar = new JButton("apagar");
-    private JTextField eNome = new JTextField();
-    private final JTextField eCpf = new JTextField();
-    private final JTextField eDataNasc = new JTextField();
-    private final JTextField eTelefone = new JTextField();
+    private JTextField eNome;
+    private final JTextField eCpf;
+    private final JTextField eDataNasc;
+    private final JTextField eTelefone;
     private final JLabel nome = new JLabel("Nome: ");
     private final JLabel cpf = new JLabel("CPF: ");
     private final JLabel dataNasc = new JLabel("Data de nascimento (xx/xx/xx): ");
     private final JLabel telefone = new JLabel("Telefone: ");
-    public static DadoController dados = new DadoController();
+    public static DadoController dados;
     public static int posi;
     
 
     public TelaEditarPessoa(DadoController d, int pos){
         dados = d;
-        posi =pos;
+        posi = pos;
 
         titulo.setFont(new Font("Arial", Font.BOLD, 20));
         titulo.setBounds(250, 30, 150, 30);
@@ -40,9 +40,13 @@ public class TelaEditarPessoa implements ActionListener {
         telefone.setFont(new Font("Arial", Font.BOLD, 15));
         telefone.setBounds(10, 250, 100, 30);
 
+        eNome = new JTextField(dados.getPessoas()[pos]);
         eNome.setBounds(250, 100, 250, 30);
+        eCpf = new JTextField(dados.getCpf()[pos]);
         eCpf.setBounds(250, 150, 250, 30);
+        eDataNasc = new JTextField(dados.getTipoDatNas()[pos]);
         eDataNasc.setBounds(250, 200, 250, 30);
+        eTelefone = new JTextField(dados.getTel()[pos]);
         eTelefone.setBounds(250, 250, 250, 30);
 
         confirmar.setBounds(450, 350, 100, 30);

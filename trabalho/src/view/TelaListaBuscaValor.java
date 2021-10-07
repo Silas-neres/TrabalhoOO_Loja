@@ -9,17 +9,17 @@ import javax.swing.event.*;
 import view.*;
 
 
-public class TelaListaBusca extends JFrame implements ListSelectionListener {
+public class TelaListaBuscaValor extends JFrame implements ListSelectionListener {
 
     private final JFrame janela = new JFrame("Lista de produtos");
     private JList<String> listaProdutosCadastrados;
     String[] nomeProduto = new String[100];
     private static DadoController dados;
 
-    public TelaListaBusca(DadoController d, String nomeP, int x){
+    public TelaListaBuscaValor(DadoController d,int x, Double valorPro){
         dados = d;
 
-        nomeProduto = new TelaListaController(dados).getNomePro(nomeP, x);
+        nomeProduto = new TelaListaController(dados).getValorPro(valorPro, x);
 
         listaProdutosCadastrados = new JList<String>(nomeProduto);
         listaProdutosCadastrados.setBounds(20, 50, 550, 350);

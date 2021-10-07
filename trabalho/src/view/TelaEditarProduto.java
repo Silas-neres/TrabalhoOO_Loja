@@ -3,35 +3,35 @@ package view;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane.SystemMenuBar;
-
-import controller.*;
 import model.*;
+import controller.*;
+import javax.swing.event.*;
+import view.*;
 
-public class TelaCadastroProduto extends JFrame implements ActionListener {
+public class TelaEditarProduto implements ActionListener {
 
     private final JFrame janela = new JFrame("Cadastro de Produto");
     private final JLabel titulo = new JLabel("Cadastro");
     private final JButton confirmar = new JButton("Confirmar");
-    private final JTextField eMarca = new JTextField();
-    private final JTextField eNome = new JTextField();
-    private final JTextField eId = new JTextField();
-    private final JTextField eTamanho = new JTextField();
-    private final JTextField eCor = new JTextField();
-    private final JTextField eValorProduto = new JTextField();
-    private final JTextField eCategoria = new JTextField();
-    private final JTextField eQuantidade = new JTextField();
-    private final JTextField eTipoBico = new JTextField();
-    private final JTextField eMaterial = new JTextField();
-    private final JTextField eCircun = new JTextField();
-    private final JTextField eAlturaSalto = new JTextField();
-    private final JTextField eDepart = new JTextField();
-    private final JTextField eTipoTrava = new JTextField();
-    private final JTextField eModelCadar = new JTextField();
-    private final JTextField eTipoCorreia = new JTextField();
-    private final JTextField eEstet = new JTextField();
-    private final JTextField eAlturaCano = new JTextField();
-    private final JTextField eModelo = new JTextField();
+    private final JButton apagar = new JButton("Apagar");
+    private final JTextField eMarca;
+    private final JTextField eNome;
+    private final JTextField eId;
+    private final JTextField eTamanho;
+    private final JTextField eCor;
+    private final JTextField eValorProduto;
+    private final JTextField eQuantidade;
+    private final JTextField eTipoBico;
+    private final JTextField eMaterial;
+    private final JTextField eCircun;
+    private final JTextField eAlturaSalto;
+    private final JTextField eDepart;
+    private final JTextField eTipoTrava;
+    private final JTextField eModelCadar;
+    private final JTextField eTipoCorreia;
+    private final JTextField eEstet;
+    private final JTextField eAlturaCano;
+    private final JTextField eModelo;
     private final JLabel marca = new JLabel("Marca: ");
     private final JLabel nome = new JLabel("Nome: ");
     private final JLabel id = new JLabel("ID: ");
@@ -51,88 +51,112 @@ public class TelaCadastroProduto extends JFrame implements ActionListener {
     private final JLabel alturaCano = new JLabel("Altura do cano: ");
     private final JLabel modelo = new JLabel("Modelo: ");
     public static DadoController dados;
-    public static int x1;
-    public static int y1;
+    public static int op;
+    public static int posi;
+    String recebeString;
 
-    public TelaCadastroProduto(DadoController d, int x,int y) {
+    public TelaEditarProduto(DadoController d, int pos) {
 
         dados = d;
-        x1 = x;
-        y1 = y;
+        posi = pos;
 
         titulo.setFont(new Font("Arial", Font.BOLD, 15));
         titulo.setBounds(120, 30, 150, 30);
 
         nome.setFont(new Font("Arial", Font.BOLD, 13));
         nome.setBounds(10, 60, 100, 30);
+        eNome = new JTextField(dados.getNomePro()[pos]);
         eNome.setBounds(101, 60, 200, 30);
 
         id.setFont(new Font("Arial", Font.BOLD, 13));
         id.setBounds(10, 90, 200, 30);
+        eId = new JTextField(dados.getId()[pos]);
         eId.setBounds(101, 90, 200, 30);
 
         marca.setFont(new Font("Arial", Font.BOLD, 13));
         marca.setBounds(10, 120, 200, 30);
+        eMarca = new JTextField(dados.getMarca()[pos]);
         eMarca.setBounds(101, 120, 200, 30);
 
         tamanho.setFont(new Font("Arial", Font.BOLD, 13));
         tamanho.setBounds(10, 150, 200, 30);
+        recebeString = String.valueOf(dados.getTamanho()[pos]);
+        eTamanho = new JTextField(recebeString);
         eTamanho.setBounds(101, 150, 200, 30);
 
         valorProduto.setFont(new Font("Arial", Font.BOLD, 13));
         valorProduto.setBounds(10, 180, 200, 30);
+        recebeString = String.valueOf(dados.getValor());
+        eValorProduto = new JTextField(recebeString);
         eValorProduto.setBounds(101, 180, 200, 30);
 
         cor.setFont(new Font("Arial", Font.BOLD, 13));
         cor.setBounds(10, 210, 200, 30);
+        eCor = new JTextField(dados.getCor()[pos]);
         eCor.setBounds(101, 210, 200, 30);
 
         quantidade.setFont(new Font("Arial", Font.BOLD, 13));
         quantidade.setBounds(10, 240, 200, 30);
+        recebeString = String.valueOf(dados.getQTdProEst()[pos]);
+        eQuantidade = new JTextField(recebeString);
         eQuantidade.setBounds(101, 240, 200, 30);
 
         tipoBico.setFont(new Font("Arial", Font.BOLD, 13));
         tipoBico.setBounds(400, 90, 200, 30);
+        eTipoBico = new JTextField(dados.getTipBico()[pos]);
         eTipoBico.setBounds(500, 90, 200, 30);
 
         material.setFont(new Font("Arial", Font.BOLD, 13));
         material.setBounds(400, 120, 200, 30);
+        eMaterial = new JTextField(dados.getMat()[pos]);
         eMaterial.setBounds(500, 120, 200, 30);
 
         circunfer.setFont(new Font("Arial", Font.BOLD, 13));
         circunfer.setBounds(400, 90, 210, 30);
+        recebeString = String.valueOf(dados.getCircunfCano()[pos]);
+        eCircun = new JTextField(recebeString);
         eCircun.setBounds(500, 90, 210, 30);
 
         alturaSalto.setFont(new Font("Arial", Font.BOLD, 13));
         alturaSalto.setBounds(400, 120, 200, 30);
+        recebeString = String.valueOf(dados.getAltSalto()[pos]);
+        eAlturaSalto = new JTextField(recebeString);
         eAlturaSalto.setBounds(500, 120, 200, 30);
 
         departamento.setFont(new Font("Arial", Font.BOLD, 13));
         departamento.setBounds(400, 90, 200, 30);
+        eDepart = new JTextField(dados.getDepart()[pos]);
         eDepart.setBounds(500, 90, 200, 30);
 
         tipoTrava.setFont(new Font("Arial", Font.BOLD, 13));
         tipoTrava.setBounds(400, 120, 200, 30);
+        eTipoTrava = new JTextField(dados.getTipoTrava()[pos]);
         eTipoTrava.setBounds(500, 120, 200, 30);
 
         modeloCadar.setFont(new Font("Arial", Font.BOLD, 13));
         modeloCadar.setBounds(400, 150, 200, 30);
+        eModelCadar = new JTextField(dados.getModelCadarco()[pos]);
         eModelCadar.setBounds(500, 150, 200, 30);
 
         tipoCorreia.setFont(new Font("Arial", Font.BOLD, 13));
         tipoCorreia.setBounds(400, 90, 200, 30);
+        eTipoCorreia = new JTextField(dados.getTipoCorrreia()[pos]);
         eTipoCorreia.setBounds(500, 90, 200, 30);
 
         estetica.setFont(new Font("Arial", Font.BOLD, 13));
         estetica.setBounds(400, 120, 200, 30);
+        eEstet = new JTextField(dados.getEstet()[pos]);
         eEstet.setBounds(500, 120, 200, 30);
 
         alturaCano.setFont(new Font("Arial", Font.BOLD, 13));
         alturaCano.setBounds(400, 90, 200, 30);
+        recebeString = String.valueOf(dados.getAltCano()[pos]);
+        eAlturaCano = new JTextField(recebeString);
         eAlturaCano.setBounds(500, 90, 200, 30);
 
         modelo.setFont(new Font("Arial", Font.BOLD, 13));
         modelo.setBounds(400, 120, 200, 30);
+        eModelo = new JTextField(dados.getModel()[pos]);
         eModelo.setBounds(500, 120, 200, 30);
 
         janela.setLayout(null);
@@ -155,19 +179,21 @@ public class TelaCadastroProduto extends JFrame implements ActionListener {
         janela.add(eCor);
         janela.add(eQuantidade);
 
-        if (y1 == 1) {
+        op = dados.getCategoria()[pos];
+
+        if (op == 1) {
             janela.add(tipoBico);
             janela.add(material);
             janela.add(eMaterial);
             janela.add(eTipoBico);
 
-        } else if (y1 == 2) {
+        } else if (op == 2) {
             janela.add(circunfer);
             janela.add(alturaSalto);
             janela.add(eAlturaSalto);
             janela.add(eCircun);
 
-        } else if (y1 == 3) {
+        } else if (op == 3) {
             janela.add(departamento);
             janela.add(tipoTrava);
             janela.add(modeloCadar);
@@ -175,7 +201,7 @@ public class TelaCadastroProduto extends JFrame implements ActionListener {
             janela.add(eTipoTrava);
             janela.add(eModelCadar);
 
-        } else if (y1 == 4) {
+        } else if (op == 4) {
             janela.add(tipoCorreia);
             janela.add(estetica);
             janela.add(eTipoCorreia);
@@ -189,148 +215,81 @@ public class TelaCadastroProduto extends JFrame implements ActionListener {
         }
 
         confirmar.setBounds(500, 350, 100, 30);
-
-        janela.setSize(400, 250);
-        janela.setVisible(true);
+        apagar.setBounds(200, 350, 100, 30);
 
         janela.add(confirmar);
+        janela.add(apagar);
 
         janela.setSize(800, 450);
         janela.setVisible(true);
 
         confirmar.addActionListener(this);
-        
+        apagar.addActionListener(this);
 
-    }
-
-    public JFrame getJanela() {
-        return janela;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        Object src = e.getSource();
 
-        JButton botaoPressionado = (JButton) e.getSource();
+        String recebeString;
 
-        if (botaoPressionado == confirmar) {
+        if (src == confirmar) {
+            String nomeProduto = eNome.getText().toUpperCase();
             String marca = eMarca.getText().toUpperCase();
-            String nome = eNome.getText().toUpperCase();
             String id = eId.getText().toUpperCase();
-            String sTamanho = eTamanho.getText().toUpperCase();
-            int tamanho = Integer.parseInt(sTamanho);
+            recebeString = eTamanho.getText();
+            int tamanho = Integer.parseInt(recebeString);
             String cor = eCor.getText().toUpperCase();
-            String sValorProduto = eValorProduto.getText().toUpperCase();
-            Double valorProduto = Double.parseDouble(sValorProduto);
-            String sQuantidade = eQuantidade.getText().toUpperCase();
-            int quantidade = Integer.parseInt(sQuantidade);
+            recebeString = eValorProduto.getText();
+            Double valorProduto = Double.parseDouble(recebeString);
+            recebeString = eQuantidade.getText();
+            int quantidade = Integer.parseInt(recebeString);
+            String tipoBico = null;
+            String material = null;
+            Double circunferenciaC = 0.0;
+            Double alturaS = 0.0;
+            String departamento = null;
+            String tipoTrava = null;
+            String modeloCadarco = null;
+            String tipoCorreia = null;
+            String estetica = null;
+            Double alturaCano = 0.0;
+            String modelo = null;
 
-            if (y1 == 1) {
-                String tipoBico = eTipoBico.getText().toUpperCase();
-                String material = eMaterial.getText().toUpperCase();
-                TelaCadastroController cP = new TelaCadastroController(x1, y1, dados, nome, marca, id, tamanho, cor,
-                        valorProduto, quantidade, tipoBico, material);
-                        System.out.println("adsfsdfdgdfhgfhfgj");
+            if (op == 1) {
+                tipoBico = eTipoBico.getText().toUpperCase();
+                material = eMaterial.getText().toUpperCase();
 
-                janela.setVisible(false);
-            } else if (y1 == 2) {
-                String sCircunfe = eCircun.getText();
-                Double circunfe = Double.parseDouble(sCircunfe);
-                String sAlturaSalto = eAlturaSalto.getText();
-                Double alturaSalto = Double.parseDouble(sAlturaSalto);
-                TelaCadastroController cP = new TelaCadastroController(x1, y1, dados, nome, marca, id, tamanho, cor,
-                        valorProduto, quantidade, circunfe, alturaSalto);
+            } else if (op == 2) {
+                recebeString = eCircun.getText();
+                circunferenciaC = Double.parseDouble(recebeString);
+                recebeString = eAlturaSalto.getText();
+                alturaS = Double.parseDouble(recebeString);
 
-                janela.setVisible(false);
-            } else if (y1 == 3) {
-                String departamento = eDepart.getText().toUpperCase();
-                String tipoTrava = eTipoBico.getText().toUpperCase();
-                String modeloCadar = eModelCadar.getText().toUpperCase();
-                TelaCadastroController cP = new TelaCadastroController(x1, y1, dados, nome, marca, id, tamanho, cor,
-                        valorProduto, quantidade, departamento, tipoTrava, modeloCadar);
+            } else if (op == 3) {
+                departamento = eDepart.getText().toUpperCase();
+                tipoTrava = eTipoTrava.getText().toUpperCase();
+                modeloCadarco = eModelCadar.getText().toUpperCase();
 
-                janela.setVisible(false);
-            } else if (y1 == 4) {
-                String tipoCorreia = eTipoCorreia.getText().toUpperCase();
-                String estetica = eEstet.getText().toUpperCase();
-                TelaCadastroController cP = new TelaCadastroController(x1, y1, dados, nome, marca, id, tamanho, cor,
-                        valorProduto, quantidade, tipoCorreia, estetica);
+            } else if (op == 4) {
+                tipoCorreia = eTipoCorreia.getText().toUpperCase();
+                estetica = eEstet.getText().toUpperCase();
 
-                janela.setVisible(false);
-            } else if (y1 == 5) {
-                String sAlturaCano = eAlturaCano.getText();
-                Double alturaCano = Double.parseDouble(sAlturaCano);
-                String modelo = eModelo.getText().toUpperCase();
-                TelaCadastroController cP = new TelaCadastroController(x1, y1, dados, nome, marca, id, tamanho, cor,
-                        valorProduto, quantidade, alturaCano, modelo);
-                
-                janela.setVisible(false);
+            } else {
+                recebeString = eAlturaCano.getText();
+                alturaCano = Double.parseDouble(recebeString);
+                modelo = eModelo.getText().toUpperCase();
             }
+
+            TelaCadastroController telaCadastroController = new TelaCadastroController(dados, posi, op, nomeProduto,
+                    marca, id, tamanho, cor, valorProduto, quantidade, tipoBico, material, circunferenciaC, alturaS,
+                    departamento, tipoTrava, modeloCadarco, tipoCorreia, estetica, alturaCano, modelo);
+            janela.setVisible(false);
+        } else {
+            TelaCadastroController telaCadastroController = new TelaCadastroController(dados, posi, op);
+            janela.setVisible(false);
         }
-        System.out.println(x1);
-    }
 
-    public JButton getConfirmar() {
-        return confirmar;
     }
-
-    public JTextField getEMarca() {
-        return eMarca;
-    }
-
-    public JTextField getENome() {
-        return eNome;
-    }
-
-    public JTextField getEId() {
-        return eId;
-    }
-
-    public JTextField getETamanho() {
-        return eTamanho;
-    }
-
-    public JTextField getECor() {
-        return eCor;
-    }
-
-    public JTextField getEValorProduto() {
-        return eValorProduto;
-    }
-
-    public JTextField getECategoria() {
-        return eCategoria;
-    }
-
-    public JTextField getEQuantidade() {
-        return eQuantidade;
-    }
-
-    public JLabel getMarca() {
-        return marca;
-    }
-
-    public JLabel getNome() {
-        return nome;
-    }
-
-    public JLabel getId() {
-        return id;
-    }
-
-    public JLabel getTamanho() {
-        return tamanho;
-    }
-
-    public JLabel getCor() {
-        return cor;
-    }
-
-    public JLabel getValorProduto() {
-        return valorProduto;
-    }
-
-    public JLabel getQuantidade() {
-        return quantidade;
-    }
-
 }

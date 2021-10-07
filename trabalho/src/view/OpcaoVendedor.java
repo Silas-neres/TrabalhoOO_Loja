@@ -8,19 +8,20 @@ import controller.DadoController;
 import controller.TelaMenuController;
 
 public class OpcaoVendedor extends JFrame implements ActionListener{
-    private final JFrame janela = new JFrame("Opcao do cliente");
+    private final JFrame janela = new JFrame("Opcao do vendedor");
 	private final JLabel titulo = new JLabel("Escolha uma opcao");
-	private final static JButton verEstoque = new JButton("verEstoque");
+	private final static JButton verEstoque = new JButton("Ver estoque");
     private final static JButton editarV = new JButton("Editar perfil");
     private final static JButton cadastraPro = new JButton("Castrar produto");
-	public static DadoController dados = new DadoController();
+	public static DadoController dados;
     public static int posi;
-    public static int x = 0;
+    public static int x1;
 
-    public OpcaoVendedor(DadoController d, int pos){
+    public OpcaoVendedor(DadoController d,int x, int pos){
 
         dados=d;
         posi=pos;
+        x1=x;
 
 		titulo.setFont(new Font("Arial", Font.BOLD, 15));
 		titulo.setBounds(120, 30, 150, 30);
@@ -48,10 +49,11 @@ public class OpcaoVendedor extends JFrame implements ActionListener{
         Object botaoPressionado = e.getSource();
 
 		if(botaoPressionado == cadastraPro){
-           TelaOpcaoProduto tp = new TelaOpcaoProduto(dados, posi);
+            x1++;
+           TelaOpcaoProduto tp = new TelaOpcaoProduto(dados, x1 ,posi);
         
         }else if(botaoPressionado == verEstoque){
-            TelaLista lista = new TelaLista(dados);
+            TelaLista lista = new TelaLista(dados,x1,0);
         }else{
             TelaEditarPessoa editar = new TelaEditarPessoa(dados,posi);
         }
