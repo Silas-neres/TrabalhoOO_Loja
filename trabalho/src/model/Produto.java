@@ -93,4 +93,7 @@ public abstract class Produto {
     public String toString(){
         return nome;
     }
+    public Double parseDouble(){
+        return valorProduto;
+    }
 }

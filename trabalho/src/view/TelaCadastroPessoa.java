@@ -20,7 +20,7 @@ public class TelaCadastroPessoa extends JFrame implements ActionListener{
     private final JLabel cpf = new JLabel("CPF: ");
     private final JLabel dataNasc = new JLabel("Data de nascimento (xx/xx/xx): ");
     private final JLabel telefone = new JLabel("Telefone: ");
-    public static DadoController dados = new DadoController();
+    public static DadoController dados;
     public static int o;
     public static int y1;
     

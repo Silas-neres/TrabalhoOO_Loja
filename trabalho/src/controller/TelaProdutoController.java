@@ -1,5 +1,7 @@
 package controller;
 
+import model.Produto;
+
 public class TelaProdutoController {
     
     private String[] p;
@@ -24,8 +26,6 @@ public class TelaProdutoController {
 
     public TelaProdutoController(){
        
-
-
     }
 
     public int getQtdProdutosCadas() {

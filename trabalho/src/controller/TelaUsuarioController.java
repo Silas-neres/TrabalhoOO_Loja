@@ -35,11 +35,14 @@ public class TelaUsuarioController {
             }
         } else {
             for (int i = 0; i < qtdPessoa + y; i++) {
-                if (tipoUser[i].equalsIgnoreCase("VENDEDOR")) {
-                    if (a[i].toString().equals("x")) {
-                    } else {
-                        s[i] = a[i].toString();
-                    }
+            	if(tipoUser[i].equalsIgnoreCase(null)) {
+            		}else {
+            			if (tipoUser[i].equalsIgnoreCase("VENDEDOR")) {
+                			if (a[i].toString().equals("x")) {
+                			} else {
+                				s[i] = a[i].toString();		
+                			}
+            		}
                 }
             }
         }

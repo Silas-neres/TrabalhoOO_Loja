@@ -31,7 +31,7 @@ public class DadoController {
         return this.d.getListaDataNasc();
     }
     public String[] getTel(){
-        return this.d.getListaTipoUsuario();
+        return this.d.getListaTelefone();
     }
     public String[] getTipoUser(){
         return this.d.getListaTipoUsuario();

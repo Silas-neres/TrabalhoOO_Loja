@@ -31,7 +31,7 @@ public class TelaProduto extends JFrame implements ActionListener {
     private final JLabel alturaCano ;
     private final JLabel modelo ;
     private final JLabel quantidade;
-    public static DadoController dados = new DadoController();
+    public static DadoController dados;
     private final JButton comprar = new JButton("Comprar");
     public static int posi;
     

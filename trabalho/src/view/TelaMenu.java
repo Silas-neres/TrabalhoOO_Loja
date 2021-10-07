@@ -4,8 +4,10 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-import controller.DadoController;
-import controller.TelaMenuController;
+import controller.*;
+import view.*;
+import model.*;
+
 
 public class TelaMenu extends JFrame implements ActionListener {
 
@@ -15,6 +17,8 @@ public class TelaMenu extends JFrame implements ActionListener {
 	private final static JButton cliente = new JButton("Cliente");
 	private final TelaMenuController controller;
 	public static DadoController dados = new DadoController();
+	private static int y=0;
+	private static int x=0;
 
 	public TelaMenu() {
 
@@ -50,10 +54,10 @@ public class TelaMenu extends JFrame implements ActionListener {
 		Object botaoPressionado = e.getSource();
 
 		if (botaoPressionado == vendedor) {
-            TelaUsuario telaUsuario = new TelaUsuario(dados,0);
+            new TelaUsuario().telaUsuario(dados,x,y,0);
             
-        } else {
-            TelaUsuario telaUsuario = new TelaUsuario(dados,1);
+        } else if (botaoPressionado == cliente){
+            new TelaUsuario().telaUsuario(dados,x,y,1);
         
         }
 

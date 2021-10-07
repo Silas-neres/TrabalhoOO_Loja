@@ -16,13 +16,15 @@ public class TelaOpcaoProduto extends JFrame implements ActionListener{
     private final static JButton chuteira = new JButton("Chuteira");
     private final static JButton chinelo = new JButton("Chinelo");
     private final static JButton tenis = new JButton("Tenis");
-	public static DadoController dados = new DadoController();
+	public static DadoController dados;
     public static int posi;
+    public static int x1;
 
-    public TelaOpcaoProduto(DadoController d, int pos){
+    public TelaOpcaoProduto(DadoController d, int x ,int pos){
 
         dados=d;
         posi=pos;
+        x1 = x;
 
 		titulo.setFont(new Font("Arial", Font.BOLD, 15));
 		titulo.setBounds(120, 30, 200, 30);
@@ -59,20 +61,20 @@ public class TelaOpcaoProduto extends JFrame implements ActionListener{
         Object botaoPressionado = e.getSource();
 
 		if(botaoPressionado == sapatilha){
-           TelaCadastroProduto produto = new TelaCadastroProduto (dados,1);
-        
+           TelaCadastroProduto produto = new TelaCadastroProduto (dados,x1,1);
+           janela.setVisible(false);
         }else if(botaoPressionado == bota){
-            TelaCadastroProduto produto = new TelaCadastroProduto (dados,2);
-            
+            TelaCadastroProduto produto = new TelaCadastroProduto (dados,x1,2);
+            janela.setVisible(false);
         }else if(botaoPressionado == chuteira){
-            TelaCadastroProduto produto = new TelaCadastroProduto (dados,3);
-            
+            TelaCadastroProduto produto = new TelaCadastroProduto (dados,x1,3);
+            janela.setVisible(false);
         }else if(botaoPressionado == chinelo){
-            TelaCadastroProduto produto = new TelaCadastroProduto (dados,4);
-            
+            TelaCadastroProduto produto = new TelaCadastroProduto (dados,x1,4);
+            janela.setVisible(false);
         }else{
-            TelaCadastroProduto produto = new TelaCadastroProduto (dados,5);
-
+            TelaCadastroProduto produto = new TelaCadastroProduto (dados,x1,5);
+            janela.setVisible(false);
         }
         
     }

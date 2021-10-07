@@ -8,36 +8,38 @@ import controller.*;
 import javax.swing.event.*;
 import view.*;
 
-public class TelaBusca extends JFrame implements ActionListener{
+
+public class TelaBuscaValor extends JFrame implements ActionListener,ListSelectionListener {
 
     private final JFrame janela = new JFrame("Busca");
-    private final JLabel titulo = new JLabel("Escreva o nome do produto");
+    private final JLabel titulo = new JLabel("Escreva o valor maximo do produto");
     private final JButton confirmar = new JButton("Confirmar");
-    private final JTextField eNome = new JTextField();
-    String[] nomeProduto = new String[100];
+    private final JTextField eValor = new JTextField();
+    Double[] valorProduto = new Double[100];
     private static DadoController dados;
-    private static String nomePro = "x";
+    private static Double valorPro = 0.0;
     private static int x1;
-    public TelaBusca(DadoController d, int x) {
+
+    public TelaBuscaValor(DadoController d, int x) {
 
         dados = d;
         x1=x;
 
         titulo.setFont(new Font("Arial", Font.BOLD, 15));
-		titulo.setBounds(100, 30, 200, 30);
-        eNome.setBounds(110, 100, 250, 30);
+		titulo.setBounds(100, 30, 300, 30);
+        eValor.setBounds(110, 100, 250, 30);
         confirmar.setBounds(10, 100, 100, 30);
 
         janela.setLayout(null);
         janela.add(titulo);
-        janela.add(eNome);
+        janela.add(eValor);
         janela.add(confirmar);
 
         janela.setSize(400, 250);
         janela.setVisible(true);
 
         
-        eNome.addActionListener(this);
+        eValor.addActionListener(this);
         confirmar.addActionListener(this);
     }
 
@@ -46,14 +48,21 @@ public class TelaBusca extends JFrame implements ActionListener{
         Object src = e.getSource();
 
         if (src == confirmar) {
-            nomePro = eNome.getText().toUpperCase();
-            if (nomePro.equals("x")) {
+            String recebeString = eValor.getText();
+            valorPro = Double.parseDouble(recebeString);
+            if (valorPro == 0.0) {
             }else{
-               TelaListaBusca listaBusca = new TelaListaBusca(dados,nomePro, x1);
+               TelaListaBuscaValor listaBusca = new TelaListaBuscaValor(dados,x1,valorPro);
             }
             janela.setVisible(false);
         }
 
+    }
+
+    @Override
+    public void valueChanged(ListSelectionEvent e) {
+        // TODO Auto-generated method stub
+        
     }
 
 }
